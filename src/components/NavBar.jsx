@@ -1,8 +1,8 @@
-
+import "../styles/navbar.css"
 const NavBar = () => {
   return (
     <>
-      <header className="header top-0 bg-white shadow-md flex flex-col sm:flex-row items-center justify-between px-4 sm:px-6 lg:px-8 py-2">
+      <header className="header top-0 bg-white shadow-md flex flex-col sm:flex-row items-center justify-between px-4 sm:px-6 lg:px-8 py-2 sticky top-0 z-50">
         <h1 className="w-full sm:w-4/12 sm:mb-0">
           <a href="/">
             <img
@@ -14,13 +14,13 @@ const NavBar = () => {
         </h1>
         <nav className="nav font-semibold text-lg flex-grow">
           <ul className="flex items-center justify-center sm:justify-end">
-            <li className="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-Light Sea Green-500 duration-200 cursor-pointer active">
+            <li className="p-4 b-2">
               <a href="/">Home</a>
             </li>
-            <li className="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-14a2b9-500 duration-200 cursor-pointer">
-              <a href="search.html">Search Resources</a>
+            <li className="p-4 b-2">
+              <a href="/">Search Resources</a>
             </li>
-            <li className="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
+            <li className="p-4 b-2">
               <a href="/">Project</a>
             </li>
           </ul>
