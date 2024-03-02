@@ -1,0 +1,19 @@
+body {
+    background-color: #f1faff;
+    font-family: poppins;
+}
+
+.lab-info {
+    background-color: #14a2b9;
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.lab-info label {
+    font-size: 22px;
+    color: #f1faff;
+}

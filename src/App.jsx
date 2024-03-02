@@ -2,13 +2,14 @@ import React from "react";
 import "../src/styles/App.css";
 import NavBar from "./components/NavBar";
 import HomeMain from "./components/HomeMain";
+import LabEntry from "./components/LabEntry";
 
 function App() {
   return (
     <>
       <NavBar />
-      <HomeMain />
-      <div class="container">
+      {/* <HomeMain /> */}
+      {/* <div class="container">
         <div class="row">
           <div class="card col-lg-3 mt-3 mr-6">
             <img
@@ -155,8 +156,9 @@ function App() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* <LoginPage /> */}
+      <LabEntry />
     </>
   );
 }
