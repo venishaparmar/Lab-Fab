@@ -1,4 +1,4 @@
-import "../styles/HomeMain.css"
+import "../styles/HomeMain.css";
 import { ImSearch } from "react-icons/im";
 
 export default function HomeMain() {
@@ -9,8 +9,14 @@ export default function HomeMain() {
         <h3 className="SearchResourceh3">Search Resources Here</h3>
 
         <div className="search-container">
-          <input type="text" className="search-input" placeholder="Search Your Resource" />
-          <button className="search-button"><ImSearch /></button>
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Search Your Resource"
+          />
+          <button className="search-button">
+            <ImSearch />
+          </button>
         </div>
         <div className="dropdown">
         <button className="dropdown-button">Select Option</button>
@@ -23,5 +29,5 @@ export default function HomeMain() {
       </div>
       </div>
     </div>
-  )
+  );
 }
