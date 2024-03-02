@@ -77,7 +77,6 @@
     background-color: #2980b9;
 }
 
-<<<<<<< HEAD
 .dropdown {
     padding-top: 2vh;
     position: relative;
@@ -133,11 +132,11 @@
     .main {
         height: 70vh;
         /* Adjust height for smaller screens */
-=======
+    }}
 @media screen and (max-width: 768px) {
     .main {
         height: 70vh;
->>>>>>> 3fcb4d86c13900f4347e802d3e8651badb13b678
+
     }
 
     .main-content {
@@ -147,7 +146,6 @@
 
     .search-container {
         max-width: 100%;
-<<<<<<< HEAD
         /* Make search container full width on smaller screens */
     }
 
@@ -181,18 +179,13 @@
     .dropdown:hover .dropdown-content {
         display: block;
         /* Show content on hover */
-=======
->>>>>>> 3fcb4d86c13900f4347e802d3e8651badb13b678
-    }
-}
+
+    }}
+
 
 @media screen and (max-width: 576px) {
     .main {
         height: 100vh;
-<<<<<<< HEAD
-        /* Adjust height for even smaller screens */
-=======
->>>>>>> 3fcb4d86c13900f4347e802d3e8651badb13b678
     }
 
     .main-content {
