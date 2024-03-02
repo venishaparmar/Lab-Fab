@@ -1,0 +1,13 @@
+/* navbar.css */
+.nav li {
+    padding: 1rem; /* Equivalent to p-4 in Tailwind CSS */
+    border-bottom: 2px solid transparent; /* Equivalent to border-b-2 in Tailwind CSS */
+    transition: border-color 0.2s, color 0.2s;
+    cursor: pointer;
+  }
+  
+  .nav li:hover {
+    border-color: #14a2b9;
+    color: #14a2b9;
+  }
+  
