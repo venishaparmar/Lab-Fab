@@ -1,5 +1,3 @@
-/* Default styles */
-
 .main {
     background-image: url('../assets/images/background.png');
     background-repeat: no-repeat;
@@ -79,11 +77,9 @@
     background-color: #2980b9;
 }
 
-/* Media queries for responsiveness */
-
 @media screen and (max-width: 768px) {
     .main {
-        height: 70vh; /* Adjust height for smaller screens */
+        height: 70vh;
     }
 
     .main-content {
@@ -92,13 +88,13 @@
     }
 
     .search-container {
-        max-width: 100%; /* Make search container full width on smaller screens */
+        max-width: 100%;
     }
 }
 
 @media screen and (max-width: 576px) {
     .main {
-        height: 100vh; /* Adjust height for even smaller screens */
+        height: 100vh;
     }
 
     .main-content {
