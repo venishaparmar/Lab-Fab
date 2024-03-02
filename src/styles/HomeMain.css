@@ -37,7 +37,7 @@
     margin: 10px 0;
     color: white;
     font-weight: 700;
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 30px;
 }
 
@@ -79,11 +79,61 @@
     background-color: #2980b9;
 }
 
+.dropdown {
+    padding-top: 2vh;
+    position: relative;
+    display: inline-block;
+    font-family: 'Arial', sans-serif;
+}
+
+.dropdown-button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: fff;
+    width: 21vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-content li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content li:hover {
+    background-color: #eeeded;
+}
+
+.dropdown-content li[selected] {
+    background-color: #f4f4f4;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 /* Media queries for responsiveness */
 
 @media screen and (max-width: 768px) {
     .main {
-        height: 70vh; /* Adjust height for smaller screens */
+        height: 70vh;
+        /* Adjust height for smaller screens */
     }
 
     .main-content {
@@ -92,13 +142,47 @@
     }
 
     .search-container {
-        max-width: 100%; /* Make search container full width on smaller screens */
+        max-width: 100%;
+        /* Make search container full width on smaller screens */
+    }
+
+    .dropdown {
+        display: block;
+        /* Change to block display for smaller screens */
+        margin-bottom: 10px;
+        /* Add some space between dropdowns */
+    }
+
+    .dropdown-button {
+        width: 100%;
+        /* Make button full width */
+        border-radius: 5px 5px 0 0;
+        /* Adjust border radius */
+        margin-bottom: -1px;
+        /* Remove gap between button and content */
+    }
+
+    .dropdown-content {
+        position: static;
+        /* Remove absolute positioning */
+        display: none;
+        /* Hide content by default */
+        border-radius: 0 0 5px 5px;
+        /* Adjust border radius */
+        box-shadow: none;
+        /* Remove box shadow */
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+        /* Show content on hover */
     }
 }
 
 @media screen and (max-width: 576px) {
     .main {
-        height: 100vh; /* Adjust height for even smaller screens */
+        height: 100vh;
+        /* Adjust height for even smaller screens */
     }
 
     .main-content {
