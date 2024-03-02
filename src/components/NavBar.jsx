@@ -1,4 +1,3 @@
-import React from "react";
 
 const NavBar = () => {
   return (
@@ -15,10 +14,10 @@ const NavBar = () => {
         </h1>
         <nav className="nav font-semibold text-lg flex-grow">
           <ul className="flex items-center justify-center sm:justify-end">
-            <li className="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer active">
+            <li className="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-Light Sea Green-500 duration-200 cursor-pointer active">
               <a href="/">Home</a>
             </li>
-            <li className="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
+            <li className="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-14a2b9-500 duration-200 cursor-pointer">
               <a href="search.html">Search Resources</a>
             </li>
             <li className="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
