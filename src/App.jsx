@@ -1,17 +1,18 @@
 import "../src/styles/App.css";
-import NavBar from "./components/NavBar";
-import HomeMain from "./components/HomeMain";
-import LabEntry from "./components/LabEntry";
+import Labcard from "./components/Labcard";
+// import NavBar from "./components/NavBar";
+// import HomeMain from "./components/HomeMain";
+// import LabEntry from "./components/LabEntry";
 
 function App() {
   return (
     <>
-<<<<<<< HEAD
+    <Labcard/>
       {/* <NavBar />
       <HomeMain /> */}
-      <LabEntry />
-=======
-      <NavBar />
+      {/* <LabEntry /> */}
+
+      {/* <NavBar /> */}
       {/* <HomeMain /> */}
       {/* <div class="container">
         <div class="row">
@@ -163,7 +164,6 @@ function App() {
       </div> */}
 
       {/* <HomeMain /> */}
->>>>>>> 9fe379fe60c90b71798f6209035934c1f7de68fd
       {/* <div className="container">
   <div className="row">
     <div className="card col-lg-3 mt-3 mr-6">
@@ -286,7 +286,6 @@ function App() {
   </div>
 </div> */}
       {/* <LoginPage /> */}
-      <LabEntry />
     </>
   );
 }
