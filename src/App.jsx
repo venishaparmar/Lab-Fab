@@ -1,16 +1,16 @@
 import "../src/styles/App.css";
-import Labcard from "./components/Labcard";
+// import Labcard from "./components/Labcard";
 // import NavBar from "./components/NavBar";
 // import HomeMain from "./components/HomeMain";
-// import LabEntry from "./components/LabEntry";
+import LabEntry from "./components/LabEntry";
 
 function App() {
   return (
     <>
-    <Labcard/>
+    {/* <Labcard/> */}
       {/* <NavBar />
       <HomeMain /> */}
-      {/* <LabEntry /> */}
+      <LabEntry />
 
       {/* <NavBar /> */}
       {/* <HomeMain /> */}

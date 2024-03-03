@@ -29,6 +29,6 @@ export default function Labcard() {
                     <h3>Robotics Lab</h3>
                 </a>
             </div>
-        </div>
+        </div>    
     )
 }
