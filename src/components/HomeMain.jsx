@@ -1,8 +1,10 @@
 import "../styles/HomeMain.css";
 import { ImSearch } from "react-icons/im";
+import Homecard from "./Homecard";
 
 export default function HomeMain() {
   return (
+    <>
     <div className="main">
       <div className="main-content">
         <h1 className="LabFabh1">Lab Fab</h1>
@@ -29,5 +31,7 @@ export default function HomeMain() {
       </div>
       </div>
     </div>
+    <Homecard/>
+    </>
   );
 }
