@@ -18,7 +18,7 @@ const NavBar = () => {
               <a href="/">Home</a>
             </li>
             <li className="p-4 b-2">
-              <a href="/">Search Resources</a>
+              <a href="/">Labs</a>
             </li>
             <li className="p-4 b-2">
               <a href="/">Project</a>
@@ -33,6 +33,7 @@ const NavBar = () => {
             className="w-16  lg:mr-40"
           />
         </div>
+      
       </header>
     </>
   );
