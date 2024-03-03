@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import "../styles/labentry.css";
 
 export default function LabEntry() {
@@ -20,6 +21,22 @@ export default function LabEntry() {
           <div className="custom_select">
             <select>
               <option value>Select</option>
+=======
+import React from "react";
+import "../styles/lab-entry.css";
+
+const LabEntry = () => {
+  return (
+    <>
+      <div className="lab-info">
+        <label> Lab Location : MA115 </label>
+        <label> Lab Name : Web Development Lab </label>
+        <label> Total Students : 12 </label>
+      </div>
+    </>
+  );
+};
+>>>>>>> 9fe379fe60c90b71798f6209035934c1f7de68fd
 
               <option value>Semester 2</option>
 
