@@ -19,12 +19,12 @@ body {
     top: 50%;
 }
 
-.background .shape {
+/* .background .shape {
     height: 200px;
     width: 200px;
     position: absolute;
     border-radius: 50%;
-}
+} */
 
 .shape:first-child {
     background: linear-gradient(#1845ad, #23a2f6);
@@ -55,7 +55,7 @@ form {
 }
 
 form * {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     color: #000000;
     letter-spacing: 0.5px;
     outline: none;
@@ -63,18 +63,27 @@ form * {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
-form h3 {
-    font-size: 32px;
+form h1 {
+    font-size: 30px;
     font-weight: 500;
     line-height: 42px;
     text-align: center;
+    color: #14a2b9;
+}
+
+form h5 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+    color: black;
 }
 
 label {
     display: block;
     margin-top: 30px;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 input {
@@ -85,16 +94,17 @@ input {
     border-radius: 3px;
     padding: 0 10px;
     margin-top: 8px;
-    font-size: 14px;
-    font-weight: 300;
+    font-size: 15px;
+    font-weight: 600;
     color: #000000;
+    border: 1px solid #ccc;
+    /* Add border style */
 }
 
-
 button {
-    margin-top: 50px;
+    margin-top: 20px;
     width: 100%;
-    background-color: #000000;
+    background-color: #14a2b9;
     color: #e5e5e5;
     padding: 15px 0;
     font-size: 18px;
