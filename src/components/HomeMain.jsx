@@ -1,15 +1,6 @@
 import "../styles/HomeMain.css";
 import { ImSearch } from "react-icons/im";
-<<<<<<< HEAD
-import DropDown from "./DropDown";
 import Homecard from "./Homecard";
-=======
-
-import DropDown from "./DropDown";
-
-import Homecard from "./Homecard";
-
->>>>>>> 9676a90838ea9bce28fdc0ff88280f581b8ca230
 
 export default function HomeMain() {
   return (
@@ -29,7 +20,6 @@ export default function HomeMain() {
               <ImSearch />
             </button>
           </div>
-          <DropDown />
         </div>
       </div>
       <Homecard />

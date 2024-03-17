@@ -13,8 +13,8 @@ const DropDown = ({ label, items }) => {
           {label}
         </button>
         <ul className="dropdown-menu">
-          {items.map((item, index) => {
-            return <li key={index}>{item}</li>;
+          {items.map((dev, index) => {
+            return <li key={index}>{dev}</li>;
           })}
         </ul>
       </div>
