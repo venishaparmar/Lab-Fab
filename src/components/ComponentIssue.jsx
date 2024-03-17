@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../styles/componentissue.css";
 import InputField from "./InputField";
 import DropDown from "./DropDown";
@@ -38,7 +38,7 @@ const ComponentIssue = () => {
             />
           </div>
           <InputField labelName="Purpose :" id="purpose" />
-          <button type="submit" class="btn btn-info">
+          <button type="submit" className="btn btn-info">
             Submit
           </button>
         </form>
