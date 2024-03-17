@@ -21,7 +21,14 @@
 }
 
 
+<<<<<<< HEAD
 .dropdown-menu li.active {
     background-color: #007bff;
     color: #fff;
 }
+=======
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+>>>>>>> 140625f6f3dcbfff0c27281c6a101909ea3fc0e3
