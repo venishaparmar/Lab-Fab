@@ -1,5 +1,6 @@
 import "../styles/HomeMain.css";
 import { ImSearch } from "react-icons/im";
+import DropDown from "./DropDown";
 
 export default function HomeMain() {
   return (
@@ -18,15 +19,7 @@ export default function HomeMain() {
             <ImSearch />
           </button>
         </div>
-        <div className="dropdown">
-        <button className="dropdown-button">Select Option</button>
-        <ul className="dropdown-content">
-          <li selected>Location</li>
-          <li>Department</li>
-          <li>Infrastructure</li>
-          <li>Name</li>
-        </ul>
-      </div>
+        <DropDown />
       </div>
     </div>
   );
