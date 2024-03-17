@@ -1,9 +1,10 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes } from "react-router-dom";
 import "../src/styles/App.css";
-import Labs from "./pages/Labs";
+// import Labs from "./pages/Labs";
 import NavBar from "./components/NavBar";
-import HomeMain from "./components/HomeMain";
+// import HomeMain from "./components/HomeMain";
 import LoginPage from "./components/LoginPage";
+import ComponentIssue from "./components/ComponentIssue";
 
 
 
@@ -11,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <>
-        {/* <NavBar /> */}
+        <NavBar />
 
         <Routes>
           {/* <Route path="/" element={<HomeMain />}/>
@@ -20,8 +21,8 @@ function App() {
         </Routes>
 
       </>
-
-      <LoginPage />
+      <ComponentIssue/>      
+      {/* <LoginPage /> */}
     </BrowserRouter>
 
   );

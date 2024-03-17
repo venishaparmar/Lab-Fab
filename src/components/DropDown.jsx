@@ -1,15 +1,21 @@
 import "../styles/dropdown.css";
 
-const DropDown = () => {
+const DropDown = ({ label, items }) => {
   return (
     <>
-      <div className="dropdown">
-        <button className="dropdown-button">Select Option</button>
-        <ul className="dropdown-content">
-          <li selected>Location</li>
-          <li>Department</li>
-          <li>Infrastructure</li>
-          <li>Name</li>
+      <div className="btn-group">
+        <button
+          type="button"
+          className="btn btn-info dropdown-toggle"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          {label}
+        </button>
+        <ul className="dropdown-menu">
+          {items.map((item, index) => {
+            return <li key={index}>{item}</li>;
+          })}
         </ul>
       </div>
     </>
