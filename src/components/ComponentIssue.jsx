@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { useState } from "react";
+=======
+import React, { useState } from "react";
+>>>>>>> b304e7cafd02be080a30d67123fa9636893fcc10
 import "../styles/componentissue.css";
 import InputField from "./InputField";
 import DropDown from "./DropDown";
@@ -38,7 +42,11 @@ const ComponentIssue = () => {
             />
           </div>
           <InputField labelName="Purpose :" id="purpose" />
+<<<<<<< HEAD
           <button type="submit" className="btn btn-info">
+=======
+          <button type="submit" class="btn btn-info">
+>>>>>>> b304e7cafd02be080a30d67123fa9636893fcc10
             Submit
           </button>
         </form>
@@ -47,4 +55,8 @@ const ComponentIssue = () => {
   );
 };
 
+<<<<<<< HEAD
 export default ComponentIssue;
+=======
+export default ComponentIssue;
+>>>>>>> b304e7cafd02be080a30d67123fa9636893fcc10
