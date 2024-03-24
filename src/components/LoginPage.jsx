@@ -17,6 +17,21 @@ const LoginPage = () => {
       setType("password");
     }
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // eslint-disable-next-line no-undef
+      body: JSON.stringify({ username, password }),
+    });
+    const data = await response.json();
+    console.log(data);
+  };
+
   return (
     <>
       <div className="background">
@@ -25,7 +40,7 @@ const LoginPage = () => {
           <div className="shape" />
         </div>
       </div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h1>Welcome to MU ICT Labs</h1>
         <h5>Login to access your account</h5>
         <div>
