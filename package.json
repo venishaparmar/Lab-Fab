@@ -12,12 +12,9 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-<<<<<<< HEAD
-    "express-validator": "^7.0.1",
-=======
     "dotenv": "^16.4.5",
+    "express-validator": "^7.0.1",
     "firebase": "^10.9.0",
->>>>>>> c1ae2bd1b7643fb19a26465d81d457047593b77f
     "react": "^18.2.0",
     "react-datepicker": "^6.3.0",
     "react-dom": "^18.2.0",
