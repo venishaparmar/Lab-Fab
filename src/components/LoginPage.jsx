@@ -1,23 +1,22 @@
-import { useState } from 'react';
+import { useState } from "react";
 import "../styles/login.css";
-import { Icon } from 'react-icons-kit';
-import { eyeOff } from 'react-icons-kit/feather/eyeOff';
-import { eye } from 'react-icons-kit/feather/eye'
+import { Icon } from "react-icons-kit";
+import { eyeOff } from "react-icons-kit/feather/eyeOff";
+import { eye } from "react-icons-kit/feather/eye";
 
 const LoginPage = () => {
-
   const [password, setPassword] = useState("");
-  const [type, setType] = useState('password');
+  const [type, setType] = useState("password");
   const [icon, setIcon] = useState(eyeOff);
   const handleToggle = () => {
-    if (type === 'password') {
+    if (type === "password") {
       setIcon(eye);
-      setType('text')
+      setType("text");
     } else {
-      setIcon(eyeOff)
-      setType('password')
+      setIcon(eyeOff);
+      setType("password");
     }
-  }
+  };
   return (
     <>
       <div className="background">
@@ -42,7 +41,10 @@ const LoginPage = () => {
               onChange={(e) => setPassword(e.target.value)}
               autoComplete="current-password"
             />
-            <span className="flex justify-around items-center" onClick={handleToggle}>
+            <span
+              className="flex justify-around items-center"
+              onClick={handleToggle}
+            >
               <Icon class="absolute mr-10" icon={icon} size={20} />
             </span>
           </div>
