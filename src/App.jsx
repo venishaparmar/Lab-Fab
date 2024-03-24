@@ -7,33 +7,29 @@ import "../src/styles/App.css";
 import Labs from "./pages/Labs";
 
 import HomeMain from "./components/HomeMain";
+import SignUp from "./components/SignUp";
+import LoginPage from "./components/LoginPage";
 
 
 function App() {
   const db = getFirestore();
 
-  const [storedValues, setStoredValues] = useState([]);
-  const fetchDataFromFirestore = async () => {
-    const querySnapshot = await getDocs(collection(db, "project-details"));
-    const tmparray = [];
-    querySnapshot.forEach((doc) => {
-      tmparray.push(doc.data());
-    });
-    setStoredValues(tmparray);
-    console.log(tmparray);
-  };
+  // const [storedValues, setStoredValues] = useState([]);
+  // const fetchDataFromFirestore = async () => {
+  //   const querySnapshot = await getDocs(collection(db, "project-details"));
+  //   const tmparray = [];
+  //   querySnapshot.forEach((doc) => {
+  //     tmparray.push(doc.data());
+  //   });
+  //   setStoredValues(tmparray);
+  //   console.log(tmparray);
+  // };
   return (
     <BrowserRouter>
-      <>
-        <NavBar />
-        <Routes>{/* <Route path="/" element={<HomeMain />} /> */}</Routes>
-      </>
-      <button onClick={fetchDataFromFirestore}> Fetch Data </button>
-        <Routes>
-          <Route path="/" element={<HomeMain />}/>
-          <Route path="/labs" element={<Labs />}/> 
-          {/* <Route path="project" element={<Project />} /> */}
-        </Routes>
+      <Routes>
+        <Route exact path="/" element={<SignUp/>} />
+        <Route exact path="/login" element={<LoginPage/>} />
+      </Routes>
     </BrowserRouter>
   );
 }
