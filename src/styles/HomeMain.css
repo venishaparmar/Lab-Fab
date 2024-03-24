@@ -179,7 +179,6 @@
 
     .dropdown:hover .dropdown-content {
         display: block;
-        /* Show content on hover */
     }
 }
 
