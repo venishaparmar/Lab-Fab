@@ -31,8 +31,10 @@ export default function Homecard() {
                 <div className="card__content">
                   <p className="card__title">{element.name}</p>
                   <p className="card__description">{element.description}</p>
-                  <button className="card__button">See Demo</button>
-                  <button className="card__button secondary">More</button>
+                  <div className="card__buttons">
+                    <button className="card__button">See Demo</button>
+                    <button className="card__button secondary">More</button>
+                  </div>
                 </div>
               </div>
             );

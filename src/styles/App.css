@@ -84,6 +84,13 @@
     text-overflow: ellipsis;
 }
 
+.card__buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    /* Add margin between buttons and description */
+}
+
 .card__button {
     padding: 15px;
     border-radius: 8px;

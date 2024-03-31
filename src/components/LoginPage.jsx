@@ -3,6 +3,7 @@ import "../styles/login.css";
 import { Icon } from "react-icons-kit";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   const [password, setPassword] = useState("");
@@ -63,7 +64,9 @@ const LoginPage = () => {
               <Icon class="absolute mr-10" icon={icon} size={20} />
             </span>
           </div>
-          <button>Log In</button>
+          <button>
+            <Link to="/home">Login</Link>
+          </button>
         </div>
       </form>
     </>

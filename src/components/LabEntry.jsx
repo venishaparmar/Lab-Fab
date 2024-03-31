@@ -9,9 +9,7 @@ export default function LabEntry() {
         <label> Total Students : 12 </label>
       </div>
       <div className="wrapper">
-        <div className="title">
-          Lab Entry of MA115
-        </div>
+        <div className="title">Lab Entry of MA115</div>
         <div className="form">
           <div className="inputfield">
             <label>Name</label>
