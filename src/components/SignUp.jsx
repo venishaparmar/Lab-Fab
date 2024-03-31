@@ -21,40 +21,13 @@ const SignUp = () => {
     const toggleConfirmPasswordVisibility = () => {
         setConfirmPasswordVisible(!confirmPasswordVisible);
     };
-
-
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (password !== confirmPassword) {
-            alert("Passwords do not match");
-            return;
-        }
-
-        const response = await fetch("/signup", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ username, password }),
-        });
-        const data = await response.json();
-        console.log(data);
-    };
-
     return (
         <>
-            <div className="background">
-                <div>
-                    <div className="shape" />
-                    <div className="shape" />
-                </div>
-            </div>
-            <form onSubmit={handleSubmit}>
+            <form>
                 <h1>Welcome to MU ICT Labs</h1>
                 <h5>Create Your User Account</h5>
                 <div>
-                <label htmlFor="name">Name</label>
+                    <label htmlFor="name">Name</label>
                     <input
                         type="text"
                         placeholder="Institute Email Id"
@@ -106,24 +79,24 @@ const SignUp = () => {
                             <Icon class="absolute mr-10" icon={confirmPasswordVisible ? eyeOff : eye} size={20} />
                         </span>
                     </div>
-                    <label htmlFor="Role">Select Role</label>
+
                     <div className="role-radio">
-                        <label>
-                            <input
-                                type="radio"
-                                value="student"
-                                checked={role === "student"}
-                                onChange={() => setRole("student")}
-                            />
-                            Student
+                        <label htmlFor="Role">Select Role :</label>
+
+                        <input
+                            type="radio"
+                            value="student"
+                            checked={role === "student"}
+                            onChange={() => setRole("student")}
+                        /><label >Student
                         </label>
+                        <input
+                            type="radio"
+                            value="faculty"
+                            checked={role === "faculty"}
+                            onChange={() => setRole("faculty")}
+                        />
                         <label>
-                            <input
-                                type="radio"
-                                value="faculty"
-                                checked={role === "faculty"}
-                                onChange={() => setRole("faculty")}
-                            />
                             Faculty
                         </label>
                     </div>
