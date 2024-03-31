@@ -71,7 +71,7 @@ const LoginPage = () => {
           </button>
           <p className="orsection"> OR </p>
           {isLoggedIn ? (
-            <button onClick={handleLogout} type="button" class="btn btn-info">
+            <button onClick={handleLogout} type="button" className="btn btn-info">
               Logout
             </button>
           ) : (

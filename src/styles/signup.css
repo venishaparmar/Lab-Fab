@@ -40,7 +40,7 @@ body {
 }
 
 form {
-    height: 520px;
+    height: 630px;
     width: 400px;
     background-color: rgba(255, 255, 255, 0.15);
     position: absolute;
@@ -81,9 +81,9 @@ form h5 {
 
 label {
     display: block;
-    margin-top: 30px;
-    font-size: 18px;
-    font-weight: 600;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 input {
@@ -93,7 +93,8 @@ input {
     background-color: rgba(255, 255, 255, 0.07);
     border-radius: 3px;
     padding: 0 10px;
-    margin-top: 8px;
+    margin-top: 6px;
+    margin-bottom: -1;
     font-size: 15px;
     font-weight: 600;
     color: #000000;
@@ -115,4 +116,14 @@ button {
     font-weight: 600;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.role-radio {
+    display: flex;
+    justify-content: space-around;
+}
+
+input[type="radio"] {
+    height: 20px;
+    width: 20px;
 }
