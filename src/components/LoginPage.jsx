@@ -4,6 +4,8 @@ import { Icon } from "react-icons-kit";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
 import { Link } from "react-router-dom";
+import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
 
 const LoginPage = () => {
   const [password, setPassword] = useState("");
@@ -18,30 +20,30 @@ const LoginPage = () => {
       setType("password");
     }
   };
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const response = await fetch("/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      // eslint-disable-next-line no-undef
-      body: JSON.stringify({ username, password }),
-    });
-    const data = await response.json();
-    console.log(data);
+  const handleLoginSuccess = (credentialResponse) => {
+    let myUser = jwtDecode(credentialResponse.credential);
+    if (myUser.email.endsWith("@marwadiuniversity.ac.in")) {
+      console.log(myUser.name);
+      setIsLoggedIn(true);
+    } else {
+      alert("Only users with @marwadiuniversity.ac.in can login.");
+    }
+  };
+
+  const handleLoginError = () => {
+    console.log("Login Failed");
+  };
+
+  const handleLogout = () => {
+    // Perform any additional logout tasks here
+    setIsLoggedIn(false);
   };
 
   return (
     <>
-      <div className="background">
-        <div>
-          <div className="shape" />
-          <div className="shape" />
-        </div>
-      </div>
-      <form onSubmit={handleSubmit}>
+      <form>
         <h1>Welcome to MU ICT Labs</h1>
         <h5>Login to access your account</h5>
         <div>
@@ -67,6 +69,17 @@ const LoginPage = () => {
           <button>
             <Link to="/home">Login</Link>
           </button>
+          <p className="orsection"> OR </p>
+          {isLoggedIn ? (
+            <button onClick={handleLogout} type="button" class="btn btn-info">
+              Logout
+            </button>
+          ) : (
+            <GoogleLogin
+              onSuccess={handleLoginSuccess}
+              onError={handleLoginError}
+            />
+          )}
         </div>
       </form>
     </>

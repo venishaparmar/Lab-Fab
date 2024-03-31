@@ -10,21 +10,7 @@ body {
     background-color: #ffffff;
 }
 
-.background {
-    width: 430px;
-    height: 520px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
-}
 
-/* .background .shape {
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    border-radius: 50%;
-} */
 
 .shape:first-child {
     background: linear-gradient(#1845ad, #23a2f6);
@@ -40,7 +26,7 @@ body {
 }
 
 form {
-    height: 520px;
+    height: 610px;
     width: 400px;
     background-color: rgba(255, 255, 255, 0.15);
     position: absolute;
@@ -111,4 +97,9 @@ button {
     font-weight: 600;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.orsection {
+    margin: 10px 0;
+    text-align: center;
 }
