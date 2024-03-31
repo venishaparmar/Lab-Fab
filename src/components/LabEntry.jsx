@@ -9,16 +9,13 @@ export default function LabEntry({ location, name }) {
         <label> Total Students : 12 </label>
       </div>
       <div className="wrapper">
-<<<<<<< HEAD
         <div className="title">Lab Entry of MA115</div>
 
         <div className="title">Lab Entry of {location}</div>
 
-=======
         <div className="title">
           Lab Entry of {location}
         </div>
->>>>>>> 09496922a56e8a4b5ddf6ca1031d95a1f3ee7de0
         <div className="form">
           <div className="inputfield">
             <label>Name</label>

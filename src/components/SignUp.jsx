@@ -6,27 +6,35 @@ import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
 
 const SignUp = () => {
+    const [role, setRole] = useState("student");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [type, setType] = useState("password");
-    const [icon, setIcon] = useState(eyeOff);
-    const handleToggle = () => {
-        if (type === "password") {
-            setIcon(eye);
-            setType("text");
-        } else {
-            setIcon(eyeOff);
-            setType("password");
-        }
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [passwordVisible, setPasswordVisible] = useState(false);
+    const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setPasswordVisible(!passwordVisible);
     };
+
+    const toggleConfirmPasswordVisibility = () => {
+        setConfirmPasswordVisible(!confirmPasswordVisible);
+    };
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (password !== confirmPassword) {
+            alert("Passwords do not match");
+            return;
+        }
+
         const response = await fetch("/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            // eslint-disable-next-line no-undef
             body: JSON.stringify({ username, password }),
         });
         const data = await response.json();
@@ -46,26 +54,74 @@ const SignUp = () => {
                 <h5>Create Your User Account</h5>
                 <div>
                     <label htmlFor="username">Enter your email</label>
-                    <input type="text" placeholder="Institute Email Id" id="username" />
-                    <label htmlFor="username">Create password</label>
-                    <div className="mb-4 flex">
+                    <input
+                        type="text"
+                        placeholder="Institute Email Id"
+                        id="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <label htmlFor="CreatePassword">Create password</label>
+                    <div className="flex">
                         <input
-                            type={type}
+                            type={passwordVisible ? "text" : "password"}
                             name="password"
                             placeholder="Password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            autoComplete="current-password"
+                            autoComplete="new-password"
+                            id="CreatePassword"
                         />
                         <span
                             className="flex justify-around items-center"
-                            onClick={handleToggle}
+                            onClick={togglePasswordVisibility}
                         >
-                            <Icon class="absolute mr-10" icon={icon} size={20} />
+                            <Icon class="absolute mr-10" icon={passwordVisible ? eyeOff : eye} size={20} />
                         </span>
                     </div>
-                    <div className="login">Already have account ? <strong><Link to="/login">Login</Link></strong> </div>
+                    <label htmlFor="confirmPassword">Confirm password</label>
+                    <div className="flex">
+                        <input
+                            type={confirmPasswordVisible ? "text" : "password"}
+                            name="confirmPassword"
+                            placeholder="Confirm Password"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            autoComplete="new-password"
+                            id="confirmPassword"
+                        />
+                        <span
+                            className="flex justify-around items-center"
+                            onClick={toggleConfirmPasswordVisibility}
+                        >
+                            <Icon class="absolute mr-10" icon={confirmPasswordVisible ? eyeOff : eye} size={20} />
+                        </span>
+                    </div>
+                    <label htmlFor="Role">Select Role</label>
+                    <div className="role-radio">
+                        <label>
+                            <input
+                                type="radio"
+                                value="student"
+                                checked={role === "student"}
+                                onChange={() => setRole("student")}
+                            />
+                            Student
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                value="faculty"
+                                checked={role === "faculty"}
+                                onChange={() => setRole("faculty")}
+                            />
+                            Faculty
+                        </label>
+                    </div>
                     <button>Create Account</button>
+                    <div className="login">
+                        Already have account ? <strong><Link to="/login">Login</Link></strong>
+                    </div>
                 </div>
             </form>
         </>
