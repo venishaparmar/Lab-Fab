@@ -7,6 +7,7 @@ import { eye } from "react-icons-kit/feather/eye";
 
 const SignUp = () => {
     const [role, setRole] = useState("student");
+    const [name, setName] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -53,6 +54,14 @@ const SignUp = () => {
                 <h1>Welcome to MU ICT Labs</h1>
                 <h5>Create Your User Account</h5>
                 <div>
+                <label htmlFor="name">Name</label>
+                    <input
+                        type="text"
+                        placeholder="Institute Email Id"
+                        id="name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
                     <label htmlFor="username">Enter your email</label>
                     <input
                         type="text"
