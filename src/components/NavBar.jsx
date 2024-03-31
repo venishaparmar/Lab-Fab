@@ -8,15 +8,16 @@ export default function NavBar() {
         <h1 className="w-full sm:w-4/12 sm:mb-0">
           <a href="/">
             <img
-              src="src\assets\images\logo.PNG"
+              src="src\assets\images\mu-logo.png"
               alt="logo"
-              className="w-40 mx-auto sm:mx-0"
+              className="w-60 mx-auto sm:mx-0"
             />
           </a>
         </h1>
         <nav className="nav font-semibold text-lg flex-grow">
           <ul className="flex items-center justify-center sm:justify-end">
             <li className="p-4 b-2">
+<<<<<<< HEAD
               <Link to="/home">Home</Link>
             </li>
             <li className="p-4 b-2">
@@ -24,17 +25,33 @@ export default function NavBar() {
             </li>
             <li className="p-4 b-2">
               <Link to="/component-issue">Component Issue</Link>
+=======
+              <Link to="/">Home</Link>
+            </li>
+            <li className="p-4 b-2">
+              <Link to="/labs">Labs</Link>
+            </li>
+            <li className="p-4 b-2">
+              <Link to="/">Project</Link>
+            </li>
+            <li className="p-4 b-2">
+              <Link to="/">Issue</Link>
+>>>>>>> bf2a8b56158cce29d992ad99cb5da5ddadcc7dd7
             </li>
           </ul>
         </nav>
         <div className="w-full sm:w-3/12 flex justify-center  sm:justify-end">
           <img
-            src="src\assets\images\ict_logo2.png"
+            src="src\assets\images\ictlogo.png"
             alt="ICT"
             id="ict-logo"
-            className="w-16  lg:mr-40"
+            className="w-30  lg:mr-30"
           />
         </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> bf2a8b56158cce29d992ad99cb5da5ddadcc7dd7
       </header>
     </>
   );

@@ -1,15 +1,21 @@
 import "../styles/lab-entry.css";
 
-export default function LabEntry() {
+export default function LabEntry({ location, name }) {
   return (
     <div>
       <div className="lab-info">
-        <label> Lab Location : MA115 </label>
-        <label> Lab Name : Web Development Lab </label>
+        <label> Lab Location : {location} </label>
+        <label> Lab Name : {name} </label>
         <label> Total Students : 12 </label>
       </div>
       <div className="wrapper">
+<<<<<<< HEAD
         <div className="title">Lab Entry of MA115</div>
+=======
+        <div className="title">
+          Lab Entry of {location}
+        </div>
+>>>>>>> bf2a8b56158cce29d992ad99cb5da5ddadcc7dd7
         <div className="form">
           <div className="inputfield">
             <label>Name</label>
