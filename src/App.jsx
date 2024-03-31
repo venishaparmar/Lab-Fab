@@ -15,10 +15,10 @@ function App() {
       <>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/home" element={<HomeMain />} />
+          <Route path="/" element={<SignUp />} />
+          {/* <Route path="/home" element={<HomeMain />} />
           <Route path="/component-issue" element={<ComponentIssue />} />
-          <Route path="/lab-entry" element={<LabEntry />} />
+          <Route path="/lab-entry" element={<LabEntry />} /> */}
         </Routes>
       </>
     </BrowserRouter>
