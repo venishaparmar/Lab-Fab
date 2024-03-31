@@ -15,7 +15,13 @@ export default function LabEntry({ location, name }) {
 
         <div className="title">Lab Entry of {location}</div>
 
+<<<<<<< HEAD
         <div className="title">Lab Entry of {location}</div>
+=======
+        <div className="title">
+          Lab Entry of {location}
+        </div>
+>>>>>>> 19a28ed4a9979c4d1364cb11a33da176d102708e
 
         <div className="form">
           <div className="inputfield">

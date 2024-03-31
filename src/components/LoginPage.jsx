@@ -85,6 +85,9 @@ const LoginPage = () => {
             />
           )}
         </div>
+        <div className="login">
+          Dont have account ? <strong><Link to="/signup">SignUp</Link></strong>
+        </div>
       </form>
     </>
   );

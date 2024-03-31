@@ -6,6 +6,7 @@ import HomeMain from "./components/HomeMain";
 import LoginPage from "./components/LoginPage";
 import ComponentIssue from "./components/ComponentIssue";
 import LabEntry from "./components/LabEntry";
+import SignUp from "./components/SignUp";
 // import Labcard from "./components/Labcard";
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
     <BrowserRouter>
       <>
         <Routes>
-          <Route path="/" element={<LoginPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/home" element={<HomeMain />} />
           <Route path="/component-issue" element={<ComponentIssue />} />
           <Route path="/lab-entry" element={<LabEntry />} />
