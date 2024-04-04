@@ -11,34 +11,17 @@ import ComponentPage from "./components/ComponentPage";
 
 function App() {
   return (
-<<<<<<< HEAD
     <BrowserRouter>
       <>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<SignUp />} />
-          {/* <Route path="/home" element={<HomeMain />} />
+          <Route path="/home" element={<HomeMain />} />
           <Route path="/component-issue" element={<ComponentIssue />} />
-          <Route path="/lab-entry" element={<LabEntry />} /> */}
+          <Route path="/lab-entry" element={<LabEntry />} />
         </Routes>
       </>
     </BrowserRouter>
-=======
-    <>
-    <ComponentPage/>
-    </>
-    // <BrowserRouter>
-    //   <>
-    //     <Routes>
-    //       <Route path="/login" element={<LoginPage />} />
-    //       <Route path="/signup" element={<SignUp />} />
-    //       <Route path="/home" element={<HomeMain />} />
-    //       <Route path="/component-issue" element={<ComponentIssue />} />
-    //       <Route path="/lab-entry" element={<LabEntry />} />
-    //     </Routes>
-    //   </>
-    // </BrowserRouter>
->>>>>>> eeea9d6ced96aecec640f6d4c97c5c7c80832189
   );
 }
 
