@@ -11,6 +11,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState(eyeOff);
+  const [role, setRole] = useState("");
   const handleToggle = () => {
     if (type === "password") {
       setIcon(eye);
@@ -41,6 +42,27 @@ const LoginPage = () => {
     setIsLoggedIn(false);
   };
 
+  const handleButtonLogin = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch("http://localhost:3000/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: username,
+        password: password,
+      }),
+    });
+
+    const json = await response.json();
+    if (json.success) {
+      localStorage.setItem("token", json.token);
+      navigate("/login");
+    }
+  };
+
   return (
     <>
       <form>
@@ -66,6 +88,24 @@ const LoginPage = () => {
               <Icon class="absolute mr-10" icon={icon} size={20} />
             </span>
           </div>
+          <div className="role-radio">
+            <label htmlFor="Role">Select Role :</label>
+
+            <input
+              type="radio"
+              value="student"
+              checked={role === "student"}
+              onChange={() => setRole("student")}
+            />
+            <label>Student</label>
+            <input
+              type="radio"
+              value="faculty"
+              checked={role === "faculty"}
+              onChange={() => setRole("faculty")}
+            />
+            <label>Faculty</label>
+          </div>
           <button>
             <Link to="/home">Login</Link>
           </button>
@@ -86,7 +126,10 @@ const LoginPage = () => {
           )}
         </div>
         <div className="login">
-          Dont have account ? <strong><Link to="/signup">SignUp</Link></strong>
+          Dont have account ?{" "}
+          <strong>
+            <Link to="/signup">SignUp</Link>
+          </strong>
         </div>
       </form>
     </>
