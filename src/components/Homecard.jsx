@@ -1,4 +1,4 @@
-import "../styles/App.css";
+import "../styles/home-card.css";
 import "../firebaseConfig";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { useEffect, useState } from "react";
@@ -6,18 +6,30 @@ import { useEffect, useState } from "react";
 export default function Homecard() {
   const db = getFirestore();
   const [storedValues, setStoredValues] = useState([]);
+
   const fetchDataFromFirestore = async () => {
-    const querySnapshot = await getDocs(collection(db, "resource-details"));
-    const tmparray = [];
-    querySnapshot.forEach((doc) => {
-      tmparray.push(doc.data());
-    });
-    setStoredValues(tmparray);
+    try {
+      const querySnapshot = await getDocs(collection(db, "resource-details"));
+      const tmparray = [];
+      querySnapshot.forEach((doc) => {
+        // Include the ID along with other document data
+        tmparray.push({ id: doc.id, ...doc.data() });
+      });
+      setStoredValues(tmparray);
+      console.log(tmparray[0]);
+    } catch (error) {
+      console.error("Error fetching data from Firestore:", error);
+    }
   };
 
   useEffect(() => {
     fetchDataFromFirestore();
   }, []);
+
+  const handleSelect = (id) => {
+    const encodedId = btoa(id);
+    window.location.href = `/component-page/${encodedId}`;
+  };
 
   return (
     <div>
@@ -33,7 +45,12 @@ export default function Homecard() {
                   <p className="card__description">{element.description}</p>
                   <div className="card__buttons">
                     <button className="card__button">See Demo</button>
-                    <button className="card__button secondary">More</button>
+                    <button
+                      className="card__button secondary"
+                      onClick={() => handleSelect(element.id)}
+                    >
+                      More
+                    </button>
                   </div>
                 </div>
               </div>

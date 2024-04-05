@@ -1,36 +1,80 @@
-import "../styles/componentPage.css"
-import "../styles/App.css";
-import "../firebaseConfig";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
-import { useEffect, useState } from "react";
-
+import "../styles/componentPage.css";
+import NavBar from "./NavBar";
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { getFirestore, doc, getDoc } from "firebase/firestore"; // Import Firestore methods
 
 const ComponentPage = () => {
-    const db = getFirestore();
-    const [storedValues, setStoredValues] = useState([]);
-    const fetchDataFromFirestore = async () => {
-        const querySnapshot = await getDocs(collection(db, "resource-details"));
-        const tmparray = [];
-        querySnapshot.forEach((doc) => {
-            tmparray.push(doc.data());
-        });
-        setStoredValues(tmparray);
+  const { id } = useParams();
+  const [isChecked, setIsChecked] = useState(true);
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
+
+  function getEncodedIdFromUrl() {
+    const urlParts = window.location.href.split("/");
+    return urlParts[urlParts.length - 1];
+  }
+  function decodeId(encodedId) {
+    return atob(encodedId);
+  }
+  const encodedId = getEncodedIdFromUrl();
+
+  const ids = decodeId(encodedId);
+  console.log("Decoded ID:", ids);
+  const [cardDetails, setCardDetails] = useState(null); // State to store card details
+  const db = getFirestore(); // Initialize Firestore
+
+  useEffect(() => {
+    // Function to fetch card details from Firestore
+    const fetchCardDetails = async () => {
+      try {
+        const docRef = doc(db, "resource-details", ids); // Reference to the document with the provided ID
+        const docSnap = await getDoc(docRef); // Get the document snapshot
+        if (docSnap.exists()) {
+          setCardDetails(docSnap.data());
+        } else {
+          console.log("No such document!");
+        }
+      } catch (error) {
+        console.error("Error fetching card details:", error);
+      }
     };
 
-    useEffect(() => {
-        fetchDataFromFirestore();
-    }, []);
+    fetchCardDetails(); // Call the fetchCardDetails function
+  }, [db, id]);
 
-    return (
+  if (!cardDetails) {
+    return <div>Loading...</div>; // Show loading indicator while fetching data
+  }
+
+  // Render the card details once fetched
+  return (
+    <>
+      <NavBar />
+      <section className="section about-section gray-bg" id="about">
         <div className="container">
-            <img src="url_to_your_image" alt="Component" />
-            <h1>Title</h1>
-            <p>Description</p>
-            <p>Component Lab Location: XYZ</p>
-            <p>Timing for Issuing Component: HH:MM - HH:MM</p>
-            <p>Faculty Incharge: Name</p>
+          <div className="row align-items-center flex-row-reverse">
+            <div className="col-lg-6">
+              <div className="about-text go-to">
+                <h3 className="dark-color">{cardDetails.name}</h3>
+                <p>{cardDetails.description}</p>
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <div className="about-avatar">
+                <img
+                  src={"src/" + cardDetails.imagePath}
+                  title="avatar"
+                  alt="avatar"
+                />
+              </div>
+            </div>
+          </div>
         </div>
-    )
-}
+      </section>
+    </>
+  );
+};
 
-export default ComponentPage
+export default ComponentPage;

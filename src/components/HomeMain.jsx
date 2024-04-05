@@ -1,16 +1,19 @@
 import "../styles/HomeMain.css";
 import { ImSearch } from "react-icons/im";
-import Homecard from "./Homecard";
 import DropDown from "./DropDown";
+import NavBar from "./NavBar";
+import { useState } from "react";
+
+import Homecard from "./Homecard";
 
 export default function HomeMain() {
   return (
     <>
+      <NavBar />
       <div className="main">
         <div className="main-content">
           <h1 className="LabFabh1">Lab Fab</h1>
           <h3 className="SearchResourceh3">Search Resources Here</h3>
-
           <div className="search-container">
             <input
               type="text"
@@ -21,7 +24,7 @@ export default function HomeMain() {
               <ImSearch />
             </button>
           </div>
-          <DropDown/>
+          <DropDown />
         </div>
       </div>
       <Homecard />

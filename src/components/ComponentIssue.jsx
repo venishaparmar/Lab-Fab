@@ -4,7 +4,7 @@ import InputField from "./InputField";
 import DropDown from "./DropDown";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+import NavBar from "./NavBar";
 const ComponentIssue = () => {
   const batchItems = ["Batch A", "Batch B", "Batch C", "Batch D"];
   const divisionItems = ["TK1", "TK2", "TK3", "TK4"];
@@ -18,6 +18,7 @@ const ComponentIssue = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   return (
     <>
+      <NavBar />
       <div className="form-div">
         <form className="comp-form">
           <InputField labelName="Name :" id="name " />
