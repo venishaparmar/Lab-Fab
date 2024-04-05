@@ -39,95 +39,11 @@
     font-size: 30px;
 }
 
-.search-container {
-    font-family: 'Arial', sans-serif;
+.search-dropdown {
     display: flex;
-    align-items: center;
-    max-width: 500px;
-    background-color: #fff;
-    border-radius: 25px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    margin: 0 auto;
+    justify-content: space-evenly;
 }
 
-.search-input {
-    flex: 1;
-    border: none;
-    padding: 10px;
-    outline: none;
-    font-size: 16px;
-    color: #000;
-}
-
-.search-input::placeholder {
-    color: #aaa;
-    padding: 10px;
-}
-
-.search-button {
-    padding: 15px 15px;
-    background-color: #14a2b9;
-    color: #fff;
-    border: none;
-    border-radius: 0 25px 25px 0;
-    font-size: 16px;
-}
-
-.search-button:hover {
-    background-color: #559ccc;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-    font-family: 'Arial', sans-serif;
-    padding-top: 2vh;
-}
-
-.dropdown-button {
-    padding: 10px 20px;
-    background-color: #14a2b9;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    z-index: 1;
-    width: 21vh;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    color: #000;
-}
-
-.dropdown-content li {
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.dropdown-content li:hover {
-    background-color: #f4f4f4;
-}
-
-.dropdown-content li[selected] {
-    background-color: #f4f4f4;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Media queries for responsiveness */
 
 @media screen and (max-width: 768px) {
     .main {
@@ -145,39 +61,6 @@
         /* Make search container full width on smaller screens */
     }
 
-    .dropdown {
-        display: block;
-        /* Change to block display for smaller screens */
-        margin-bottom: 10px;
-        /* Add some space between dropdowns */
-    }
-
-    .dropdown-button {
-        width: 100%;
-        /* Make button full width */
-        border-radius: 5px 5px 0 0;
-        /* Adjust border radius */
-        margin-bottom: -1px;
-        /* Remove gap between button and content */
-    }
-
-    .dropdown-content {
-        position: static;
-        /* Remove absolute positioning */
-        display: none;
-        /* Hide content by default */
-        border-radius: 0 0 5px 5px;
-        /* Adjust border radius */
-        box-shadow: none;
-        /* Remove box shadow */
-        width: 100%;
-        left: 0;
-        right: 0;
-    }
-
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
 }
 
 @media screen and (max-width: 576px) {
