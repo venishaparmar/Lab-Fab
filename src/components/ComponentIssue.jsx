@@ -6,15 +6,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import NavBar from "./NavBar";
 const ComponentIssue = () => {
-  const batchItems = ["Batch A", "Batch B", "Batch C", "Batch D"];
-  const divisionItems = ["TK1", "TK2", "TK3", "TK4"];
-  const semesterItems = [
-    "1 (First)",
-    "2 (Second)",
-    "3 (Third)",
-    "4 (Fourth)",
-    "5 (Fifth)",
-  ];
   const [selectedDate, setSelectedDate] = useState(null);
   return (
     <>
@@ -22,10 +13,38 @@ const ComponentIssue = () => {
       <div className="form-div">
         <form className="comp-form">
           <InputField labelName="Name :" id="name " />
-          <div className="dropdown-menus">
-            <DropDown label="Division" items={divisionItems} />
-            <DropDown label="Batch" items={batchItems} />
-            <DropDown label="Semester" items={semesterItems} />
+          <div className="inputfield">
+            <label>Division</label>
+            <div className="custom_select">
+              <select>
+                <option value>Select</option>
+                <option value>TK1</option>
+                <option value>TK1</option>
+                <option value>TK1</option>
+              </select>
+            </div>
+          </div>
+          <div className="inputfield">
+            <label>Batch</label>
+            <div className="custom_select">
+              <select>
+                <option value>select</option>
+                <option value>A</option>
+                <option value>B</option>
+                <option value>C</option>
+              </select>
+            </div>
+          </div>
+          <div className="inputfield">
+            <label>Semester</label>
+            <div className="custom_select">
+              <select>
+                <option value>select</option>
+                <option value>2</option>
+                <option value>4</option>
+                <option value>6</option>
+              </select>
+            </div>
           </div>
           <InputField labelName="Component Name :" id="comp-name" />
           <div className="date-picker-container">
