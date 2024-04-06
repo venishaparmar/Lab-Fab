@@ -3,7 +3,6 @@ import NavBar from "./NavBar";
 export default function LabEntry({ location, name }) {
   return (
     <>
-      <NavBar />
       <div>
         <div className="lab-info">
           <label> Lab Location : {location} </label>
@@ -11,13 +10,6 @@ export default function LabEntry({ location, name }) {
           <label> Total Students : 12 </label>
         </div>
         <div className="wrapper">
-          <div className="title">Lab Entry of MA115</div>
-
-          <div className="title">Lab Entry of {location}</div>
-
-          <div className="title">Lab Entry of {location}</div>
-
-          <div className="title">Lab Entry of {location}</div>
           <div className="title">Lab Entry of {location}</div>
           <div className="form">
             <div className="inputfield">
