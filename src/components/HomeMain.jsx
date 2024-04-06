@@ -1,17 +1,72 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/HomeMain.css";
 import DropDown from "./DropDown";
 import NavBar from "./NavBar";
 import Homecard from "./Homecard";
+import "../firebaseConfig";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from "firebase/firestore";
 
 export default function HomeMain() {
   const [firstDropdownValue, setFirstDropdownValue] = useState(null);
   const [secondDropdownOptions, setSecondDropdownOptions] = useState([]);
+  const [isSearchInputDisabled, setIsSearchInputDisabled] = useState(true);
+  const [searchBarTitle, SetSearchBarTitle] = useState("");
+
+  const db = getFirestore();
+  const [storedValues, setStoredValues] = useState([]);
+
+  const fetchDataFromFirestore = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(db, "resource-details"));
+      const tmparray = [];
+      querySnapshot.forEach((doc) => {
+        // Include the ID along with other document data
+        tmparray.push({ id: doc.id, ...doc.data() });
+      });
+      setStoredValues(tmparray);
+      console.log(tmparray[0]);
+    } catch (error) {
+      console.error("Error fetching data from Firestore:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchDataFromFirestore();
+  }, []);
+
+  const searchFirestore = async (field, value) => {
+    const db = getFirestore(); // Initialize Firestore
+    let results = [];
+
+    try {
+      // Create a Firestore query based on the provided field and value
+      const q = query(
+        collection(db, "resource-details"),
+        where(field, "==", value)
+      );
+      const querySnapshot = await getDocs(q);
+
+      // Iterate over the query snapshot and extract the data
+      querySnapshot.forEach((doc) => {
+        results.push(doc.data());
+      });
+
+      setStoredValues(results);
+    } catch (error) {
+      console.error("Error searching Firestore:", error);
+    }
+  };
 
   // Options for the first dropdown
   const firstDropdownOptions = [
     { label: "Name" },
-    { label: "Location" },
+    { label: "location" },
     { label: "Faculty" },
     { label: "Lab-Name" },
     { label: "Department" },
@@ -21,24 +76,26 @@ export default function HomeMain() {
   const handleFirstDropdownChange = (selectedOption) => {
     setFirstDropdownValue(selectedOption);
 
-    // Update options for the second dropdown based on the selected option
-    if (selectedOption.label === "Location") {
-      setSecondDropdownOptions([
-        { label: "MA109" },
-        { label: "MA108" },
-        { label: "MA107" },
-        // Add more options as needed
-      ]);
-    } else if (selectedOption.label === "Faculty") {
-      setSecondDropdownOptions([
-        { label: "FOT" },
-        { label: "FOE" },
-        { label: "FOM" },
-        // Add more options as needed
-      ]);
-    } else {
-      // If no specific options, clear the options for the second dropdown
-      setSecondDropdownOptions([]);
+    setIsSearchInputDisabled(selectedOption.label !== "Name");
+
+    switch (selectedOption.label) {
+      case "location":
+        setSecondDropdownOptions([
+          { label: "MA109" },
+          { label: "MA108" },
+          { label: "MA107" },
+        ]);
+        break;
+      case "Faculty":
+        setSecondDropdownOptions([
+          { label: "Faculty Of Technology" },
+          { label: "Faculty Of Engineering" },
+          { label: "Faculty Of Management" },
+        ]);
+        break;
+
+      default:
+        setSecondDropdownOptions([]);
     }
   };
 
@@ -53,7 +110,12 @@ export default function HomeMain() {
             <input
               type="search"
               className="bg-white shadow rounded border-0 p-3 pr-10"
-              placeholder="Search by name..."
+              placeholder={
+                isSearchInputDisabled
+                  ? " Please Select Name Filter to Search "
+                  : " Search by Name ..."
+              }
+              disabled={isSearchInputDisabled}
             />
             <svg
               version="1.1"
@@ -86,14 +148,14 @@ export default function HomeMain() {
               onChange={(selectedOption) => {
                 console.log(
                   "Selected option from second dropdown:",
-                  selectedOption
+                  selectedOption.label
                 );
               }}
             />
           </div>
         </div>
       </div>
-      <Homecard />
+      <Homecard dataValues={storedValues} />
     </>
   );
 }
