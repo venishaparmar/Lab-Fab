@@ -1,5 +1,6 @@
 import "../styles/componentPage.css";
 import NavBar from "./NavBar";
+import Loader from "./Loader";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getFirestore, doc, getDoc } from "firebase/firestore"; // Import Firestore methods
@@ -21,7 +22,6 @@ const ComponentPage = () => {
   const encodedId = getEncodedIdFromUrl();
 
   const ids = decodeId(encodedId);
-  console.log("Decoded ID:", ids);
   const [cardDetails, setCardDetails] = useState(null); // State to store card details
   const db = getFirestore(); // Initialize Firestore
 
@@ -46,7 +46,7 @@ const ComponentPage = () => {
   }, [db, id]);
 
   if (!cardDetails) {
-    return <div>Loading...</div>; // Show loading indicator while fetching data
+    return <Loader />;
   }
 
   // Render the card details once fetched
