@@ -1,35 +1,34 @@
 import { useState } from "react";
-import "../styles/componentissue.css";
-import InputField from "./InputField";
-import DropDown from "./DropDown";
+// import "../styles/componentissue.css";
+import "../styles/lab-entry.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import NavBar from "./NavBar";
+
 const ComponentIssue = () => {
-  const batchItems = ["Batch A", "Batch B", "Batch C", "Batch D"];
-  const divisionItems = ["TK1", "TK2", "TK3", "TK4"];
-  const semesterItems = [
-    "1 (First)",
-    "2 (Second)",
-    "3 (Third)",
-    "4 (Fourth)",
-    "5 (Fifth)",
-  ];
   const [selectedDate, setSelectedDate] = useState(null);
   return (
     <>
-      <NavBar />
-      <div className="form-div">
-        <form className="comp-form">
-          <InputField labelName="Name :" id="name " />
-          <div className="dropdown-menus">
-            <DropDown label="Division" items={divisionItems} />
-            <DropDown label="Batch" items={batchItems} />
-            <DropDown label="Semester" items={semesterItems} />
+      <div className="wrapper">
+      <div className="title">Component Issue Details</div>
+        <div className="form">
+          <div className="inputfield">
+            <label>Student Name</label>
+            <input type="text" className="input" />
           </div>
-          <InputField labelName="Component Name :" id="comp-name" />
+          <div className="inputfield">
+            <label>Component Name</label>
+            <input type="text" className="input" />
+          </div>
           <div className="date-picker-container">
-            <h2>Return Date :</h2>
+            <label>Issue Date :</label>
+            <DatePicker
+              selected={selectedDate}
+              onChange={(date) => setSelectedDate(date)}
+              dateFormat="dd/MM/yyyy"
+              minDate={new Date()}
+              isClearable
+            />
+            <label>Return Date :</label>
             <DatePicker
               selected={selectedDate}
               onChange={(date) => setSelectedDate(date)}
@@ -38,11 +37,14 @@ const ComponentIssue = () => {
               isClearable
             />
           </div>
-          <InputField labelName="Purpose :" id="purpose" />
-          <button type="submit" className="btn btn-info">
-            Submit
-          </button>
-        </form>
+          <div className="inputfield">
+            <label>Purpose</label>
+            <input type="text" className="input" />
+          </div>
+          <div className="inputfield">
+            <input type="submit" defaultValue="Register" className="btn" />
+          </div>
+        </div>
       </div>
     </>
   );
