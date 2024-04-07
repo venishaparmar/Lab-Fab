@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import "../styles/navbar.css";
+import MuLogo from "../assets/images/mu-logo.png";
+import IctLogo from "../assets/images/ictlogo.png";
 
 export default function NavBar() {
   return (
@@ -8,7 +10,7 @@ export default function NavBar() {
         <h1 className="w-full sm:w-4/12 sm:mb-0">
           <a href="/">
             <img
-              src="src\assets\images\mu-logo.png"
+              src={MuLogo}
               alt="logo"
               className="w-60 mx-auto sm:mx-0"
             />
@@ -32,7 +34,7 @@ export default function NavBar() {
         </nav>
         <div className="w-full sm:w-3/12 flex justify-center  sm:justify-end">
           <img
-            src="src\assets\images\ictlogo.png"
+            src={IctLogo}
             alt="ICT"
             id="ict-logo"
             className="w-30  lg:mr-30"
