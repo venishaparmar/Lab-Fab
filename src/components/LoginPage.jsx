@@ -52,7 +52,7 @@ const LoginPage = () => {
           </div>
           {role === "student" && (
             <button>
-              <Link to="/home">Scan QR from ID</Link>
+              <Link to="/qr-reader">Scan QR from ID</Link>
             </button>
           )}
           {role === "faculty" && (

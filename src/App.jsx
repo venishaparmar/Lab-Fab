@@ -6,6 +6,7 @@ import ComponentIssue from "./components/ComponentIssue";
 import SignUp from "./components/SignUp";
 import ComponentPage from "./components/ComponentPage";
 import Labcard from "./components/Labcard";
+import QrReader from "./components/QrReader";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<ComponentIssue />} />
           <Route path="/lab-entry" element={<Labcard />} />
           <Route exact path="/component-page/:id" element={<ComponentPage />} />
+          <Route exact path="/qr-reader" element={<QrReader />} />
         </Routes>
       </>
     </BrowserRouter>
