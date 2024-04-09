@@ -13,23 +13,32 @@ const ComponentIssue = () => {
 
   const handleSubmit = async () => {
     try {
+      const formattedIssueDate = issueDate
+        ? issueDate.toISOString().split("T")[0]
+        : null;
+      const formattedReturnDate = returnDate
+        ? returnDate.toISOString().split("T")[0]
+        : null;
+
       const response = await axios.post(
         "http://localhost:3000/api/component/component-issue",
         {
           componentName,
           quantity,
-          issueDate,
-          returnDate,
+          issueDate: formattedIssueDate,
+          returnDate: formattedReturnDate,
           purpose,
+          status: "pending",
+          studentToken:localStorage.getItem("jwt-token"),
         }
       );
       console.log(response.data);
       // Reset form after successful submission
-      setComponentName("");
-      setQuantity(0);
-      setIssueDate(null);
-      setReturnDate(null);
-      setPurpose("");
+      setComponentName(() => "");
+      setQuantity(() => 0);
+      setIssueDate(() => null);
+      setReturnDate(() => null);
+      setPurpose(() => "");
     } catch (error) {
       console.error(error);
     }

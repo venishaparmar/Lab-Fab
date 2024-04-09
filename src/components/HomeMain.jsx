@@ -60,6 +60,7 @@ export default function HomeMain() {
       querySnapshot.forEach((doc) => {
         results.push({ id: doc.id, ...doc.data() });
       });
+      console.log(results);
 
       setStoredValues(results);
     } catch (error) {
@@ -179,6 +180,7 @@ export default function HomeMain() {
                   secondDropdownValue.label
                 );
               } else if (searchQuery) {
+                console.log(searchQuery);
                 searchFirestore("name", searchQuery);
               }
             }}

@@ -89,7 +89,7 @@ const SignUp = () => {
               onClick={togglePasswordVisibility}
             >
               <Icon
-                class="absolute mr-10"
+                className="absolute mr-10"
                 icon={passwordVisible ? eyeOff : eye}
                 size={20}
               />
@@ -111,7 +111,7 @@ const SignUp = () => {
               onClick={toggleConfirmPasswordVisibility}
             >
               <Icon
-                class="absolute mr-10"
+                className="absolute mr-10"
                 icon={confirmPasswordVisible ? eyeOff : eye}
                 size={20}
               />

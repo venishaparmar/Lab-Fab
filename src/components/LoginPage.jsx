@@ -3,7 +3,7 @@ import "../styles/login.css";
 import { Icon } from "react-icons-kit";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 
@@ -12,6 +12,7 @@ const LoginPage = () => {
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState(eyeOff);
   const [role, setRole] = useState("");
+  const navigate = useNavigate();
   const handleToggle = () => {
     if (type === "password") {
       setIcon(eye);
@@ -26,8 +27,10 @@ const LoginPage = () => {
   const handleLoginSuccess = (credentialResponse) => {
     let myUser = jwtDecode(credentialResponse.credential);
     if (myUser.email.endsWith("@marwadiuniversity.ac.in")) {
-      console.log(myUser.name);
+      localStorage.setItem("jwt-token", credentialResponse.credential);
+      localStorage.setItem("username", myUser.name);
       setIsLoggedIn(true);
+      navigate("/home");
     } else {
       alert("Only users with @marwadiuniversity.ac.in can login.");
     }
@@ -42,26 +45,26 @@ const LoginPage = () => {
     setIsLoggedIn(false);
   };
 
-  const handleButtonLogin = async (e) => {
-    e.preventDefault();
+  // const handleButtonLogin = async (e) => {
+  //   e.preventDefault();
 
-    const response = await fetch("http://localhost:3000/api/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: username,
-        password: password,
-      }),
-    });
+  //   const response = await fetch("http://localhost:3000/api/auth/login", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       email: username,
+  //       password: password,
+  //     }),
+  //   });
 
-    const json = await response.json();
-    if (json.success) {
-      localStorage.setItem("token", json.token);
-      navigate("/login");
-    }
-  };
+  //   const json = await response.json();
+  //   if (json.success) {
+  //     localStorage.setItem("token", json.token);
+  //     navigate("/login");
+  //   }
+  // };
 
   return (
     <>
@@ -85,7 +88,7 @@ const LoginPage = () => {
               className="flex justify-around items-center"
               onClick={handleToggle}
             >
-              <Icon class="absolute mr-10" icon={icon} size={20} />
+              <Icon className="absolute mr-10" icon={icon} size={20} />
             </span>
           </div>
           <div className="role-radio">

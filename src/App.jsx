@@ -6,6 +6,7 @@ import ComponentIssue from "./components/ComponentIssue";
 import LabEntry from "./components/LabEntry";
 import SignUp from "./components/SignUp";
 import ComponentPage from "./components/ComponentPage";
+import RequestShow from "./components/RequestShow";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/home" element={<HomeMain />} />
           <Route path="/component-issue" element={<ComponentIssue />} />
           <Route path="/lab-entry" element={<LabEntry />} />
+          <Route path="/request-show" element={<RequestShow />} />
           <Route exact path="/component-page/:id" element={<ComponentPage />} />
         </Routes>
       </>
