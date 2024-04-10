@@ -10,10 +10,10 @@ const RequestShow = () => {
     const fetchComponentIssues = async () => {
       try {
         // Replace 'YOUR_STUDENT_TOKEN' with the actual student token value
-        const studentToken = "";
+        const studentToken = localStorage.getItem("jwt-token");
         console.log(studentToken);
         const response = await axios.get(
-          `http://localhost:3000/api/component/component-issues/RequestShow.jsx:14 eyJhbGciOiJSUzI1NiIsImtpZCI6IjkzYjQ5NTE2MmFmMGM4N2NjN2E1MTY4NjI5NDA5NzA0MGRhZjNiNDMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI4NTg4OTY5MDM1MTUta3BtbzYyM2htaDN1aTZpazMycGRlZHI5M2l1cmdndWEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI4NTg4OTY5MDM1MTUta3BtbzYyM2htaDN1aTZpazMycGRlZHI5M2l1cmdndWEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDE3NDgyOTcyMzM1NDQ1MTU5OTMiLCJoZCI6Im1hcndhZGl1bml2ZXJzaXR5LmFjLmluIiwiZW1haWwiOiJkZXYubWVodGExMTQ5NDFAbWFyd2FkaXVuaXZlcnNpdHkuYWMuaW4iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzEyNjM1ODkwLCJuYW1lIjoiREVWIE1FSFRBIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0wwRHFSZUlCZmkxazJRM2pqdVJ1Z2ljclBIUUxJMkhwYm1JLUNDUEFiVXAtTEJ5QT1zOTYtYyIsImdpdmVuX25hbWUiOiJERVYiLCJmYW1pbHlfbmFtZSI6Ik1FSFRBIiwiaWF0IjoxNzEyNjM2MTkwLCJleHAiOjE3MTI2Mzk3OTAsImp0aSI6Ijg1MmM2Y2JjMDlhNTdjY2E5YzI2OGI1YmE0MjI5YzI0ZjgyNzhlOTQifQ.bkK52vQNOkL_G3ZWCEIbhk46R1NApjm0gh5voDo6z7J4tUciriqZ2DrFBGS2HS-6l-ZQUJ_LLRy5E8V3gq2oIGKQSkuHK9eol6mgRll8b8fXL0qDaVotA8kuIE4K95qQ9Vati61S_5tqJ7oyqnpDcrWON7S5985gPL8skbog5YiL0Y5HmnZ5qXPUcA0TB0TW_KMJYzq69aMSAN-EFbZsHCfSRWIT_u40DkZmihgDP2YcbAJeM4hMZoGNWRdnzwqUYdEtE-K4K1jG663wmq7AIQS4u9WZPvpPBDAw6xGcvLrjqhOkMp8Wt0_yg2ZVRij7sZRjPZygoJi3ffWqDszW0w`
+          `http://localhost:3000/api/component/component-issues/e1bscdhvbcgft2`
         );
         setComponentIssues(response.data.componentIssues);
         console.log(response.data.componentIssues);

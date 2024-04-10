@@ -12,13 +12,6 @@ export default function LabEntry({ location, name }) {
         </div>
         <div className="wrapper">
           <div className="title">Lab Entry of MA115</div>
-
-          <div className="title">Lab Entry of {location}</div>
-
-          <div className="title">Lab Entry of {location}</div>
-
-          <div className="title">Lab Entry of {location}</div>
-          <div className="title">Lab Entry of {location}</div>
           <div className="form">
             <div className="inputfield">
               <label>Name</label>
