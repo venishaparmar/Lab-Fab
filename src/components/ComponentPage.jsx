@@ -64,7 +64,7 @@ const ComponentPage = () => {
             <div className="col-lg-6">
               <div className="about-avatar">
                 <img
-                  src={"src/" + cardDetails.imagePath}
+                  src={"http://localhost:5173/src/" + cardDetails.imagePath}
                   title="avatar"
                   alt="avatar"
                 />
