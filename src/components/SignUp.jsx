@@ -8,9 +8,6 @@ import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   let navigate = useNavigate();
-  const [role, setRole] = useState("student");
-  const [name, setName] = useState("");
-  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -37,10 +34,7 @@ const SignUp = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: name,
-        email: username,
         password: password,
-        role: role,
       }),
     });
 
@@ -53,25 +47,14 @@ const SignUp = () => {
 
   return (
     <>
-      <form>
+      <form className="signup-form">
         <h1>Welcome to MU ICT Labs</h1>
-        <h5>Create Your User Account</h5>
         <div>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">GR Number</label>
           <input
-            type="text"
-            placeholder="Institute Email Id"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <label htmlFor="username">Enter your email</label>
-          <input
-            type="text"
-            placeholder="Institute Email Id"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            type="number"
+            placeholder="Enter Your GR Number"
+            id="grNumber"
           />
           <label htmlFor="CreatePassword">Create password</label>
           <div className="flex">
@@ -116,25 +99,6 @@ const SignUp = () => {
                 size={20}
               />
             </span>
-          </div>
-
-          <div className="role-radio">
-            <label htmlFor="Role">Select Role :</label>
-
-            <input
-              type="radio"
-              value="student"
-              checked={role === "student"}
-              onChange={() => setRole("student")}
-            />
-            <label>Student</label>
-            <input
-              type="radio"
-              value="faculty"
-              checked={role === "faculty"}
-              onChange={() => setRole("faculty")}
-            />
-            <label>Faculty</label>
           </div>
           <button onClick={handleSubmit}>Create Account</button>
           <div className="login">

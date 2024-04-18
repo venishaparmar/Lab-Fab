@@ -41,7 +41,7 @@
 
 .search-dropdown {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 
@@ -73,4 +73,10 @@
         padding-left: 20px;
         padding-right: 20px;
     }
+}
+
+.equipment-heading {
+    font-size: 40px;
+    margin: 10px 0;
+    text-align: center;
 }

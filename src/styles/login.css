@@ -1,3 +1,4 @@
+/* General styling */
 *,
 *:before,
 *:after {
@@ -8,31 +9,27 @@
 
 body {
     background-color: #ffffff;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #333; /* Changed text color for better contrast */
 }
 
-
-
-.shape:first-child {
-    background: linear-gradient(#1845ad, #23a2f6);
-    left: -80px;
-    top: -80px;
+/* Background shapes */
+.background {
+    width: 100%;
+    height: 100vh;
+    position: relative;
 }
 
-.shape:last-child {
-    /* background: linear-gradient(to right, #ff512f, #f09819); */
-    background: linear-gradient(#1845ad, #23a2f6);
-    right: -30px;
-    bottom: -80px;
-}
-
+/* Form styling */
 form {
-    height: 610px;
-    width: 400px;
+    max-width: 500px;
+    width: 80%;
+    height: 400px;
     background-color: rgba(255, 255, 255, 0.15);
     position: absolute;
-    transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
     border-radius: 10px;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.1);
@@ -40,66 +37,78 @@ form {
     padding: 50px 35px;
 }
 
-form * {
-    font-family: 'Source Sans Pro', sans-serif;
-    color: #000000;
-    letter-spacing: 0.5px;
-    outline: none;
-    border: none;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-}
-
-form h1 {
-    font-size: 30px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
-    color: #14a2b9;
-}
-
-form h5 {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
-    color: black;
-}
-
-label {
-    display: block;
-    margin-top: 30px;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-input {
-    display: block;
-    height: 50px;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.07);
-    border-radius: 3px;
-    padding: 0 10px;
-    margin-top: 8px;
-    font-size: 15px;
-    font-weight: 600;
-    color: #000000;
-    border: 1px solid #ccc;
-    /* Add border style */
-}
-
 button {
     margin-top: 20px;
-    width: 100%;
     background-color: #14a2b9;
-    color: #e5e5e5;
+    color: #fff;
     padding: 15px 0;
     font-size: 18px;
     font-weight: 600;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease; /* Added transition effect */
 }
 
-.orsection {
-    margin: 10px 0;
-    text-align: center;
+button:hover {
+    background-color: #0d7d8d; /* Changed hover color for better contrast */
 }
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 600px) {
+    form {
+        padding: 30px;
+    }
+
+    label,
+    input,
+    button {
+        font-size: 14px;
+    }
+}
+
+/* Additional styling */
+form h1,
+form h5 {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+    color: #14a2b9;
+    margin-bottom: 20px; /* Added margin bottom for spacing */
+}
+
+.login {
+    text-align: center;
+    margin-top: 20px; /* Added margin top for spacing */
+}
+
+.role-radio {
+    padding-top: 5; /* Adjusted padding for spacing */
+    display: flex;
+    font-size: 20px;
+}
+
+input[type="radio"] {
+    height: 20px;
+    width: 20px;
+    margin-top: 14px;
+    margin-left: 30px;
+    margin-right: 8px;
+    justify-content: center;
+}
+
+.login-google{
+    padding-top: 5%;
+    text-align: center;
+    align-items: center;
+}
+
+
+.role-options {
+    display: flex;
+    align-items: center;
+  }
+  
+  .role-options input[type="radio"] {
+    margin-right: 5px; /* Adjust spacing between radio buttons and labels */
+  }
