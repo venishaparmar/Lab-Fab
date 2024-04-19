@@ -8,6 +8,7 @@ import ComponentPage from "./components/ComponentPage";
 import RequestShow from "./components/RequestShow";
 import Labcard from "./components/Labcard";
 import QrReader from "./components/QrReader";
+import ComponentReview from "./components/ComponentReview";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
           <Route path="/request-show" element={<RequestShow />} />
           <Route exact path="/component-page/:id" element={<ComponentPage />} />
           <Route exact path="/qr-reader" element={<QrReader />} />
-          <Route exact path="/request" element={<RequestShow />} />
+          <Route exact path="/component-review" element={<ComponentReview />} />
 
         </Routes>
       </>
