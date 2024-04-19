@@ -1,182 +1,167 @@
-import React, { useState, useEffect } from 'react';
-import { classNames } from 'primereact/utils';
-import { FilterMatchMode, FilterOperator } from 'primereact/api';
-import { DataTable } from 'primereact/datatable';
-import { Column } from 'primereact/column';
-import { InputText } from 'primereact/inputtext';
-import { Dropdown } from 'primereact/dropdown';
-import { MultiSelect } from 'primereact/multiselect';
-import { Tag } from 'primereact/tag';
-import { TriStateCheckbox } from 'primereact/tristatecheckbox';
-import { CustomerService } from './CustomerService';
-import "../styles/RequestShow.css"
-import { Row } from 'primereact/row';
+import NavBar from "./NavBar";
+import { useState } from "react";
 
-export default function BasicFilterDemo() {
-    const [customers, setCustomers] = useState(null);
-    const [filters, setFilters] = useState({
-        global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-        name: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-        'country.name': { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-        representative: { value: null, matchMode: FilterMatchMode.IN },
-        status: { value: null, matchMode: FilterMatchMode.EQUALS },
-        verified: { value: null, matchMode: FilterMatchMode.EQUALS }
-    });
-    const [loading, setLoading] = useState(true);
-    const [globalFilterValue, setGlobalFilterValue] = useState('');
-    const [representatives] = useState([
-        { name: 'Amy Elsner', image: 'amyelsner.png' },
-        { name: 'Anna Fali', image: 'annafali.png' },
-        { name: 'Asiya Javayant', image: 'asiyajavayant.png' },
-        { name: 'Bernardo Dominic', image: 'bernardodominic.png' },
-        { name: 'Elwin Sharvill', image: 'elwinsharvill.png' },
-        { name: 'Ioni Bowcher', image: 'ionibowcher.png' },
-        { name: 'Ivan Magalhaes', image: 'ivanmagalhaes.png' },
-        { name: 'Onyama Limba', image: 'onyamalimba.png' },
-        { name: 'Stephen Shaw', image: 'stephenshaw.png' },
-        { name: 'XuXue Feng', image: 'xuxuefeng.png' }
-    ]);
-    const [statuses] = useState(['unqualified', 'qualified', 'new', 'negotiation', 'renewal']);
+const data = [
+  {
+    _id: {
+      $oid: "6614f47e123432e7b9dac1d0",
+    },
+    studentToken:
+      "eyJhbGciOiJSUzI1NiIsImtpZCI6IjkzYjQ5NTE2MmFmMGM4N2NjN2E1MTY4NjI5NDA5NzA0MGRhZjNiNDMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI4NTg4OTY5MDM1MTUta3BtbzYyM2htaDN1aTZpazMycGRlZHI5M2l1cmdndWEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI4NTg4OTY5MDM1MTUta3BtbzYyM2htaDN1aTZpazMycGRlZHI5M2l1cmdndWEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDE3NDgyOTcyMzM1NDQ1MTU5OTMiLCJoZCI6Im1hcndhZGl1bml2ZXJzaXR5LmFjLmluIiwiZW1haWwiOiJkZXYubWVodGExMTQ5NDFAbWFyd2FkaXVuaXZlcnNpdHkuYWMuaW4iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzEyNjQ4OTgwLCJuYW1lIjoiREVWIE1FSFRBIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0wwRHFSZUlCZmkxazJRM2pqdVJ1Z2ljclBIUUxJMkhwYm1JLUNDUEFiVXAtTEJ5QT1zOTYtYyIsImdpdmVuX25hbWUiOiJERVYiLCJmYW1pbHlfbmFtZSI6Ik1FSFRBIiwiaWF0IjoxNzEyNjQ5MjgwLCJleHAiOjE3MTI2NTI4ODAsImp0aSI6ImE1NzUzYzdjMWRiYThlMDJhZDk2NDQzMmJmYmUzY2E0N2NjMTYzMGYifQ.jfPcbhETYkmvALV6-mHqfJ0YRyNzMWy-EkknYkzoAI8Ezst5gWi8eHQUBMOSD3-Ls5nUHMgkBdwwQpvqZl1f9Z5N6WARhHTSltY2PTPq1Wfi_uEtttlSXneZDC-Sok34_9L5zw1H0Kf0VF-t08pNepfH1LPYFzNgxD6RO37EM8UlwvIfROTF5uLVr9PTvufz6bU6UeUB36mcwpmz4e991T7qHS2h9WC-kZL7Vk03qzXNGMAdJGpQXcsCQOSFRcs8IWfwlnDainVZQ5_8rrGnj3Q4VDZdaIniK-r_hVB16I4LfO2mGQ0WuyG3ALtGJiL_OxjGYDBp9Dk_n61IfFhmHA",
+    componentName: "LEDs",
+    quantity: 10,
+    issueDate: {
+      $date: "2024-04-08T00:00:00.000Z",
+    },
+    returnDate: {
+      $date: "2024-04-09T00:00:00.000Z",
+    },
+    purpose: "To perform experiment",
+    status: "pending",
+    __v: 0,
+  },
+  {
+    _id: {
+      $oid: "661817e54e369efbd6c09d8c",
+    },
+    studentToken:
+      "eyJhbGciOiJSUzI1NiIsImtpZCI6IjkzYjQ5NTE2MmFmMGM4N2NjN2E1MTY4NjI5NDA5NzA0MGRhZjNiNDMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI4NTg4OTY5MDM1MTUta3BtbzYyM2htaDN1aTZpazMycGRlZHI5M2l1cmdndWEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI4NTg4OTY5MDM1MTUta3BtbzYyM2htaDN1aTZpazMycGRlZHI5M2l1cmdndWEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDE3NDgyOTcyMzM1NDQ1MTU5OTMiLCJoZCI6Im1hcndhZGl1bml2ZXJzaXR5LmFjLmluIiwiZW1haWwiOiJkZXYubWVodGExMTQ5NDFAbWFyd2FkaXVuaXZlcnNpdHkuYWMuaW4iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzEyODU0NTA3LCJuYW1lIjoiREVWIE1FSFRBIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0wwRHFSZUlCZmkxazJRM2pqdVJ1Z2ljclBIUUxJMkhwYm1JLUNDUEFiVXAtTEJ5QT1zOTYtYyIsImdpdmVuX25hbWUiOiJERVYiLCJmYW1pbHlfbmFtZSI6Ik1FSFRBIiwiaWF0IjoxNzEyODU0ODA3LCJleHAiOjE3MTI4NTg0MDcsImp0aSI6Ijc4YjM1Y2Q3NjFjYWZhZjRmMTA0ZjJkMzE1NjFlM2IwODRmN2QzODIifQ.G3_crbyKCZAO6IzfZI4kxmNmcpccd2UPmduZpLc9tVxXPAMzcIpkYjQPVD7wP9oWyvTXWrmX2obfJdpz7TKpRejs_rKwDXqwJrhntqlL5vKdIKVn3XK-HvVBEIck_8Fxe5BLZsZo0L9d_V2BvTGD3gNR2KfYQ_kTK8gHz_2wwWXf2MeDt1EzG2i-0EeJANXJguq9czjCUVnieeatwM3qb2kjkhNnqLg7NcAOgsUoZql5sAjZwf09Cx4m4HzgJguG6xtTrCvjcO3XcGvJqxhOjWgYOwhPHvrN8SflZIo96Za-5bKvyCUlATFSN_dDKb49VlWuaIckf_URv-N2EWiMXw",
+    componentName: "BreadBoard",
+    quantity: 10,
+    issueDate: {
+      $date: "2024-04-11T00:00:00.000Z",
+    },
+    returnDate: {
+      $date: "2024-04-12T00:00:00.000Z",
+    },
+    purpose: "To Perform Experiment",
+    status: "pending",
+    __v: 0,
+  },
+  {
+    _id: {
+      $oid: "661817e54e369efbd6c09d8c",
+    },
+    studentToken:
+      "eyJhbGciOiJSUzI1NiIsImtpZCI6IjkzYjQ5NTE2MmFmMGM4N2NjN2E1MTY4NjI5NDA5NzA0MGRhZjNiNDMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI4NTg4OTY5MDM1MTUta3BtbzYyM2htaDN1aTZpazMycGRlZHI5M2l1cmdndWEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI4NTg4OTY5MDM1MTUta3BtbzYyM2htaDN1aTZpazMycGRlZHI5M2l1cmdndWEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDE3NDgyOTcyMzM1NDQ1MTU5OTMiLCJoZCI6Im1hcndhZGl1bml2ZXJzaXR5LmFjLmluIiwiZW1haWwiOiJkZXYubWVodGExMTQ5NDFAbWFyd2FkaXVuaXZlcnNpdHkuYWMuaW4iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzEyODU0NTA3LCJuYW1lIjoiREVWIE1FSFRBIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0wwRHFSZUlCZmkxazJRM2pqdVJ1Z2ljclBIUUxJMkhwYm1JLUNDUEFiVXAtTEJ5QT1zOTYtYyIsImdpdmVuX25hbWUiOiJERVYiLCJmYW1pbHlfbmFtZSI6Ik1FSFRBIiwiaWF0IjoxNzEyODU0ODA3LCJleHAiOjE3MTI4NTg0MDcsImp0aSI6Ijc4YjM1Y2Q3NjFjYWZhZjRmMTA0ZjJkMzE1NjFlM2IwODRmN2QzODIifQ.G3_crbyKCZAO6IzfZI4kxmNmcpccd2UPmduZpLc9tVxXPAMzcIpkYjQPVD7wP9oWyvTXWrmX2obfJdpz7TKpRejs_rKwDXqwJrhntqlL5vKdIKVn3XK-HvVBEIck_8Fxe5BLZsZo0L9d_V2BvTGD3gNR2KfYQ_kTK8gHz_2wwWXf2MeDt1EzG2i-0EeJANXJguq9czjCUVnieeatwM3qb2kjkhNnqLg7NcAOgsUoZql5sAjZwf09Cx4m4HzgJguG6xtTrCvjcO3XcGvJqxhOjWgYOwhPHvrN8SflZIo96Za-5bKvyCUlATFSN_dDKb49VlWuaIckf_URv-N2EWiMXw",
+    componentName: "BreadBoard",
+    quantity: 10,
+    issueDate: {
+      $date: "2024-04-11T00:00:00.000Z",
+    },
+    returnDate: {
+      $date: "2024-04-12T00:00:00.000Z",
+    },
+    purpose: "To Perform Experiment",
+    status: "accepted",
+    __v: 0,
+  },
+];
 
-    const getSeverity = (status) => {
-        switch (status) {
-            case 'unqualified':
-                return 'danger';
-
-            case 'qualified':
-                return 'success';
-
-            case 'new':
-                return 'info';
-
-            case 'negotiation':
-                return 'warning';
-
-            case 'renewal':
-                return null;
-        }
-    };
-
-    useEffect(() => {
-        CustomerService.getCustomersMedium().then((data) => {
-            setCustomers(getCustomers(data));
-            setLoading(false);
-        });
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-    const getCustomers = (data) => {
-        return [...(data || [])].map((d) => {
-            d.date = new Date(d.date);
-
-            return d;
-        });
-    };
-
-    const onGlobalFilterChange = (e) => {
-        const value = e.target.value;
-        let _filters = { ...filters };
-
-        _filters['global'].value = value;
-
-        setFilters(_filters);
-        setGlobalFilterValue(value);
-    };
-
-    const renderHeader = () => {
-        return (
-            <div className="flex justify-content-end">
-                <span className="p-input-icon-left">
-                    <i className="pi pi-search" />
-                    <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Keyword Search" />
-                </span>
-            </div>
-        );
-    };
-
-    const countryBodyTemplate = (rowData) => {
-        return (
-            <div className="flex align-items-center gap-2">
-                <img alt="flag" src="https://primefaces.org/cdn/primereact/images/flag/flag_placeholder.png" className={`flag flag-${rowData.country.code}`} style={{ width: '24px' }} />
-                <span>{rowData.country.name}</span>
-            </div>
-        );
-    };
-
-    const representativeBodyTemplate = (rowData) => {
-        const representative = rowData.representative;
-
-        return (
-            <div className="flex align-items-center gap-2">
-                <img alt={representative.name} src={`https://primefaces.org/cdn/primereact/images/avatar/${representative.image}`} width="32" />
-                <span>{representative.name}</span>
-            </div>
-        );
-    };
-
-    const representativesItemTemplate = (option) => {
-        return (
-            <div className="flex align-items-center gap-2">
-                <img alt={option.name} src={`https://primefaces.org/cdn/primereact/images/avatar/${option.image}`} width="32" />
-                <span>{option.name}</span>
-            </div>
-        );
-    };
-
-    const statusBodyTemplate = (rowData) => {
-        return <Tag value={rowData.status} severity={getSeverity(rowData.status)} />;
-    };
-
-    const statusItemTemplate = (option) => {
-        return <Tag value={option} severity={getSeverity(option)} />;
-    };
-
-    const verifiedBodyTemplate = (rowData) => {
-        return <i className={classNames('pi', { 'true-icon pi-check-circle': rowData.verified, 'false-icon pi-times-circle': !rowData.verified })}></i>;
-    };
-
-    const representativeRowFilterTemplate = (options) => {
-        return (
-            <MultiSelect
-                value={options.value}
-                options={representatives}
-                itemTemplate={representativesItemTemplate}
-                onChange={(e) => options.filterApplyCallback(e.value)}
-                optionLabel="name"
-                placeholder="Any"
-                className="p-column-filter"
-                maxSelectedLabels={1}
-                style={{ minWidth: '14rem' }}
-            />
-        );
-    };
-
-    const statusRowFilterTemplate = (options) => {
-        return (
-            <Dropdown value={options.value} options={statuses} onChange={(e) => options.filterApplyCallback(e.value)} itemTemplate={statusItemTemplate} placeholder="Select One" className="p-column-filter" showClear style={{ minWidth: '12rem' }} />
-        );
-    };
-
-    const verifiedRowFilterTemplate = (options) => {
-        return <TriStateCheckbox value={options.value} onChange={(e) => options.filterApplyCallback(e.value)} />;
-    };
-
-    const header = renderHeader();
-
-    return (
-        <div className="table-card">
-            <DataTable value={customers} paginator rows={10} dataKey="id" filters={filters} filterDisplay="row" loading={loading}
-                    globalFilterFields={['name', 'country.name', 'representative.name', 'status']} header={header} emptyMessage="No customers found.">
-                <Column field="name" header="Name" filter filterPlaceholder="Search by name" style={{ minWidth: '12rem' }} />
-                <Column header="Country" filterField="country.name" style={{ minWidth: '12rem' }} body={countryBodyTemplate} filter filterPlaceholder="Search by country" />
-                <Column header="Agent" filterField="representative" showFilterMenu={false} filterMenuStyle={{ width: '14rem' }} style={{ minWidth: '14rem' }}
-                    body={representativeBodyTemplate} filter filterElement={representativeRowFilterTemplate} />
-                <Row field="status" header="Status" showFilterMenu={false} filterMenuStyle={{ width: '14rem' }} style={{ minWidth: '12rem' }} body={statusBodyTemplate} filter filterElement={statusRowFilterTemplate} />
-                <Row field="verified" header="Verified" dataType="boolean" style={{ minWidth: '6rem' }} body={verifiedBodyTemplate} filter filterElement={verifiedRowFilterTemplate} />
-            </DataTable>
-        </div>
+const RequestShow = () => {
+    const [searchName, setSearchName] = useState("");
+    const [searchStatus, setSearchStatus] = useState("");
+  
+    const filteredData = data.filter(
+      (item) =>
+        item.componentName.toLowerCase().includes(searchName.toLowerCase()) &&
+        item.status.toLowerCase().includes(searchStatus.toLowerCase())
     );
-}
-        
+  
+    return (
+      <>
+        <NavBar />
+        <div className="items-center justify-center m-3">
+          <div className="mb-2 ml-2 overflow-x-auto">
+            <table className="w-full min-w-full divide-y divide-gray-200">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    <div className="text-sm">Component name</div>
+                    <input
+                      type="text"
+                      className="w-30 border border-gray-300 rounded-md h-8 p-1"
+                      placeholder="Search by name"
+                      value={searchName}
+                      onChange={(e) => setSearchName(e.target.value)}
+                    />
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Quantity
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    <div className="text-sm">Status</div>
+                    <input
+                      type="text"
+                      className="w-24 border border-gray-300 rounded-md h-8 p-1"
+                      placeholder="Search by status"
+                      value={searchStatus}
+                      onChange={(e) => setSearchStatus(e.target.value)}
+                    />
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Issue date
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Return date
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {filteredData.map((item) => (
+                  <tr key={item._id.$oid}>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {item.componentName}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {item.quantity}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <div
+                        className={`${
+                          item.status === "pending"
+                            ? "bg-red-400"
+                            : "bg-green-400"
+                        } text-white font-bold py-1 px-3 rounded-full`}
+                        style={{ display: "inline-block" }}
+                      >
+                        {item.status}
+                      </div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {new Date(item.issueDate.$date).toLocaleDateString()}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {new Date(item.returnDate.$date).toLocaleDateString()}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </>
+    );
+  };
+  
+  export default RequestShow;
+  
+
 // import { useState, useEffect } from "react";
 // import axios from "axios";
 // import NavBar from "./NavBar";
@@ -258,7 +243,6 @@ export default function BasicFilterDemo() {
 //           </div>
 //         </main>
 
-        
 //       </div>
 //       <div>
 //         {error && <p>Error: {error}</p>}
