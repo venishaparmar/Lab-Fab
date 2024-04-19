@@ -19,9 +19,12 @@
     "express-validator": "^7.0.1",
     "firebase": "^10.9.0",
     "jwt-decode": "^4.0.0",
+<<<<<<< HEAD
+=======
     "primeflex": "^3.3.1",
     "primeicons": "^7.0.0",
     "primereact": "^10.6.3",
+>>>>>>> fe7155bdf6bc0ad96f8374271da07df49a574bc7
     "qr-scanner": "^1.4.2",
     "react": "^18.2.0",
     "react-datepicker": "^6.3.0",
