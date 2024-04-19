@@ -83,7 +83,7 @@ const RequestShow = () => {
                     <div className="text-sm">Component name</div>
                     <input
                       type="text"
-                      className="w-30 border border-gray-300 rounded-md h-8 p-1"
+                      className="w-20 border border-gray-300 rounded-md h-8 p-1"
                       placeholder="Search by name"
                       value={searchName}
                       onChange={(e) => setSearchName(e.target.value)}
