@@ -80,9 +80,9 @@ const QrReader = () => {
       console.log(error);
       alert("Login failed. Please try again.");
     } finally {
-      setShow(false);
+    
       setPassword("");
-      refClose.current.click();
+  
     }
   };
 
