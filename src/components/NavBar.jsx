@@ -4,6 +4,7 @@ import MuLogo from "../assets/images/mu-logo.png";
 import IctLogo from "../assets/images/ictlogo.png";
 
 export default function NavBar() {
+
   const user = localStorage.getItem("currentUser");
   const isLoggedIn = localStorage.getItem("isLoggedIn");
   const navigate = useNavigate();
@@ -11,6 +12,15 @@ export default function NavBar() {
   const handleLogout = () => {
     localStorage.removeItem("currentUser");
     localStorage.removeItem("isLoggedIn");
+
+  const username = localStorage.getItem("username");
+  const isLoggedIn = localStorage.getItem("jwt-token");
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("jwt-token");
+    localStorage.removeItem("username");
+
     navigate("/login");
   };
   return (
@@ -57,4 +67,4 @@ export default function NavBar() {
       </header>
     </>
   );
-}
+}};

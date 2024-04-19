@@ -12,18 +12,27 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@mui/material": "^5.15.15",
     "@react-oauth/google": "^0.12.1",
     "axios": "^1.6.8",
     "dotenv": "^16.4.5",
     "express-validator": "^7.0.1",
     "firebase": "^10.9.0",
     "jwt-decode": "^4.0.0",
+<<<<<<< HEAD
+=======
+    "primeflex": "^3.3.1",
+    "primeicons": "^7.0.0",
+    "primereact": "^10.6.3",
+>>>>>>> fe7155bdf6bc0ad96f8374271da07df49a574bc7
     "qr-scanner": "^1.4.2",
     "react": "^18.2.0",
     "react-datepicker": "^6.3.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
-    "react-icons-kit": "^2.0.0"
+    "react-icons-kit": "^2.0.0",
+    "react-scripts": "^5.0.1",
+    "react-virtuoso": "^4.7.9"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

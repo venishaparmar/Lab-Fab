@@ -1,15 +1,28 @@
 import { useEffect, useRef, useState } from "react";
 
+<<<<<<< HEAD
 import "../styles/QrStyles.css";
 import QrScanner from "qr-scanner";
 import QrFrame from "../assets/images/qr-frame.svg";
 import { useNavigate } from "react-router-dom";
 
 const QrReader = () => {
+=======
+// Styles
+import "../styles/QrStyles.css";
+
+// Qr Scanner
+import QrScanner from "qr-scanner";
+import QrFrame from "../assets/images/qr-frame.svg";
+
+const QrReader = () => {
+  // QR States
+>>>>>>> fe7155bdf6bc0ad96f8374271da07df49a574bc7
   const scanner = useRef(null);
   const videoEl = useRef(null);
   const qrBoxEl = useRef(null);
   const [qrOn, setQrOn] = useState(true);
+<<<<<<< HEAD
   const navigate = useNavigate();
 
   const [scannedResult, setScannedResult] = useState("");
@@ -21,6 +34,16 @@ const QrReader = () => {
     const grNumber = result?.data.split("~")[0];
     setShowModal(true);
     setScannedResult(grNumber);
+=======
+
+  // Result
+  const [scannedResult, setScannedResult] = useState("");
+
+  // Success
+  const onScanSuccess = (result) => {
+    console.log(result);
+    setScannedResult(result?.data);
+>>>>>>> fe7155bdf6bc0ad96f8374271da07df49a574bc7
   };
 
   // Fail
@@ -53,6 +76,7 @@ const QrReader = () => {
     };
   }, []);
 
+<<<<<<< HEAD
   const handleLogin = async () => {
     if (!password) {
       alert("Please enter your password.");
@@ -86,6 +110,8 @@ const QrReader = () => {
     }
   };
 
+=======
+>>>>>>> fe7155bdf6bc0ad96f8374271da07df49a574bc7
   useEffect(() => {
     if (!qrOn) {
       alert(
@@ -95,6 +121,7 @@ const QrReader = () => {
   }, [qrOn]);
 
   return (
+<<<<<<< HEAD
     <>
       {!showModal && (
         <div className="qr-reader">
@@ -140,6 +167,34 @@ const QrReader = () => {
         </div>
       )}
     </>
+=======
+    <div className="qr-reader">
+      <video ref={videoEl}></video>
+      <div ref={qrBoxEl} className="qr-box">
+        <img
+          src={QrFrame}
+          alt="Qr Frame"
+          width={256}
+          height={256}
+          className="qr-frame"
+        />
+      </div>
+
+      {scannedResult && (
+        <p
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            zIndex: 99999,
+            color: "white",
+          }}
+        >
+          Scanned Result: {scannedResult}
+        </p>
+      )}
+    </div>
+>>>>>>> fe7155bdf6bc0ad96f8374271da07df49a574bc7
   );
 };
 
