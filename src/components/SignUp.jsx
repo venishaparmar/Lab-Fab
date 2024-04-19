@@ -35,10 +35,9 @@ const SignUp = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-<<<<<<< HEAD
+
         grNumber: grNumber,
-=======
->>>>>>> fe7155bdf6bc0ad96f8374271da07df49a574bc7
+
         password: password,
       }),
     });
@@ -60,12 +59,11 @@ const SignUp = () => {
             type="number"
             placeholder="Enter Your GR Number"
             id="grNumber"
-<<<<<<< HEAD
+
             onChange={(e) => {
               setGrNumber(e.target.value);
             }}
-=======
->>>>>>> fe7155bdf6bc0ad96f8374271da07df49a574bc7
+
           />
           <label htmlFor="CreatePassword">Create password</label>
           <div className="flex">

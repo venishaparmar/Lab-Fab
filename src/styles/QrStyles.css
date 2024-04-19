@@ -1,5 +1,4 @@
 .qr-reader {
-<<<<<<< HEAD
   width: 430px;
   height: 50vh;
   margin: 0 auto;
@@ -124,7 +123,6 @@
 .d-none {
   display: none;
 }
-=======
     width: 430px;
     height: 50vh;
     margin: 0 auto;
@@ -157,4 +155,3 @@
     }
   }
   
->>>>>>> fe7155bdf6bc0ad96f8374271da07df49a574bc7
