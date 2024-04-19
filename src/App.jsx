@@ -3,9 +3,11 @@ import "../src/styles/App.css";
 import HomeMain from "./components/HomeMain";
 import LoginPage from "./components/LoginPage";
 import ComponentIssue from "./components/ComponentIssue";
-import LabEntry from "./components/LabEntry";
 import SignUp from "./components/SignUp";
 import ComponentPage from "./components/ComponentPage";
+import RequestShow from "./components/RequestShow";
+import Labcard from "./components/Labcard";
+import QrReader from "./components/QrReader";
 
 function App() {
   return (
@@ -16,8 +18,12 @@ function App() {
           <Route path="/" element={<SignUp />} />
           <Route path="/home" element={<HomeMain />} />
           <Route path="/component-issue" element={<ComponentIssue />} />
-          <Route path="/lab-entry" element={<LabEntry />} />
+          <Route path="/lab-entry" element={<Labcard />} />
+          <Route path="/request-show" element={<RequestShow />} />
           <Route exact path="/component-page/:id" element={<ComponentPage />} />
+          <Route exact path="/qr-reader" element={<QrReader />} />
+          <Route exact path="/request" element={<RequestShow />} />
+
         </Routes>
       </>
     </BrowserRouter>

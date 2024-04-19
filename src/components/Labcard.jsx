@@ -38,30 +38,6 @@ export default function Labcard() {
           <h2>MA107</h2>
           <h3>Robotics Lab</h3>
         </a>
-        <a href="#" className="card-item" onClick={() => handleCardClick("MA109", "Electronics Lab")}>
-          <h2>MA109</h2>
-          <h3>Electronics Lab</h3>
-        </a>
-        <a href="#" className="card-item" onClick={() => handleCardClick("MA108", "Communication Lab")}>
-          <h2>MA108</h2>
-          <h3>Communication Lab</h3>
-        </a>
-        <a href="#" className="card-item" onClick={() => handleCardClick("MA107", "Robotics Lab")}>
-          <h2>MA107</h2>
-          <h3>Robotics Lab</h3>
-        </a>
-        <a href="#" className="card-item" onClick={() => handleCardClick("MA109", "Electronics Lab")}>
-          <h2>MA109</h2>
-          <h3>Electronics Lab</h3>
-        </a>
-        <a href="#" className="card-item" onClick={() => handleCardClick("MA108", "Communication Lab")}>
-          <h2>MA108</h2>
-          <h3>Communication Lab</h3>
-        </a>
-        <a href="#" className="card-item" onClick={() => handleCardClick("MA107", "Robotics Lab")}>
-          <h2>MA107</h2>
-          <h3>Robotics Lab</h3>
-        </a>
       </div>
       {showForm && <LabEntry location={selectedLab.location} name={selectedLab.name} />}
     </div>
