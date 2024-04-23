@@ -1,0 +1,250 @@
+.lab-entry-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 25px;
+}
+
+.qr-reader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  margin: 5vh 20vw 10vh 20vw;
+}
+
+.qr-box {
+  position: relative;
+}
+
+.qr-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.qr-reader video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.qr-reader .qr-box {
+  width: 100% !important;
+  left: 0 !important;
+}
+
+.qr-reader .qr-frame {
+  position: absolute;
+  fill: none;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/* Modal container */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent background */
+  z-index: 9999;
+  /* Ensure it's above other elements */
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #ffffff;
+  /* White background */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  /* Soft shadow effect */
+  max-width: 400px;
+  /* Limit modal width for better readability */
+}
+
+/* Modal title */
+.modal-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333333;
+  /* Dark text color */
+}
+
+/* Modal input field */
+.modal-content input[type="password"] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  /* Light border color */
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* Login button */
+.modal-content button {
+  background-color: #98c0fa;
+  /* Green button color */
+  color: #ffffff;
+  /* White text color */
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Login button hover effect */
+.modal-content button:hover {
+  background-color: #9cc2fb;
+  /* Darker green on hover */
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: #000000;
+  /* Light gray color */
+  font-size: 20px;
+}
+
+/* Close button hover effect */
+.modal-close:hover {
+  color: #000000;
+  /* Slightly darker gray on hover */
+}
+
+.lab-entry-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lab-entry-modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.lab-entry-modal-content h2 {
+  margin-top: 0;
+}
+
+.lab-entry-form-group {
+  margin-bottom: 20px;
+}
+
+.purpose-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+#purpose {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.lab-entry-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+
+.lab-entry-button :hover {
+  background-color: #0056b3;
+}
+
+.leave-entry-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 100;
+  /* Set a high z-index to ensure the modal is on top */
+}
+
+.leave-entry-modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.close-button {
+  background-color: #e84118;
+  margin-left: 10px;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.leave-button {
+  background-color: #3f51b5;
+  /* Blue for leave button */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button-container {
+  display: flex;
+}
+
+
+
+
+
+/* Media Queries for mobile screens */
+@media (max-width: 426px) {
+  .qr-reader {
+    width: 100%;
+  }
+}
+
+.d-none {
+  display: none;
+}

@@ -1,6 +1,6 @@
 import "../styles/componentPage.css";
 import NavBar from "./NavBar";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getFirestore, doc, getDoc } from "firebase/firestore"; // Import Firestore methods
 
@@ -33,6 +33,7 @@ const ComponentPage = () => {
         const docSnap = await getDoc(docRef); // Get the document snapshot
         if (docSnap.exists()) {
           setCardDetails(docSnap.data());
+          console.log(docSnap.data());
         } else {
           console.log("No such document!");
         }
@@ -59,11 +60,36 @@ const ComponentPage = () => {
               <div className="about-text go-to">
                 <h3 className="dark-color">{cardDetails.name}</h3>
                 <p>{cardDetails.description}</p>
+                <div className="mt-3">
+                  <span className="field dark-color"> Location : </span>
+                  <span className="value">{cardDetails.location}</span>
+                </div>
+                <div className="mt-3">
+                  <span className="field dark-color"> Timing : </span>
+                  <span className="value">{cardDetails.timing}</span>
+                </div>
               </div>
+              <a
+                href={cardDetails["video-link"]}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button type="button" className="btn btn-info">
+                  Watch Video
+                </button>
+              </a>
+              <Link
+                to={`/component-issue?componentName=${encodeURIComponent(
+                  cardDetails.name
+                )}`}
+              >
+                <button type="button" className="btn btn-info ml-3">
+                  Issue this Component
+                </button>
+              </Link>
             </div>
             <div className="col-lg-6">
               <div className="about-avatar">
-
                 <img
                   src={"http://localhost:5173/src/" + cardDetails.imagePath}
                   title="avatar"

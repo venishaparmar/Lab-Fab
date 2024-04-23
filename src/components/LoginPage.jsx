@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "../styles/login.css";
-import { Icon } from "react-icons-kit";
+import toast from "react-hot-toast";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 
@@ -12,6 +12,7 @@ const LoginPage = () => {
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState(eyeOff);
   const [role, setRole] = useState("");
+  const navigate = useNavigate();
   const handleToggle = () => {
     if (type === "password") {
       setIcon(eye);
@@ -21,13 +22,30 @@ const LoginPage = () => {
       setType("password");
     }
   };
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLoginSuccess = (credentialResponse) => {
     let myUser = jwtDecode(credentialResponse.credential);
     if (myUser.email.endsWith("@marwadiuniversity.ac.in")) {
-      console.log(myUser.name);
-      setIsLoggedIn(true);
+      //localStorage.setItem("jwt-token", credentialResponse.credential);
+      // localStorage.setItem("username", myUser.name);
+      const numbersInEmail = myUser.email.match(/\d+/g);
+      const grNumber = numbersInEmail.join("");
+      console.log(grNumber);
+      localStorage.setItem("currentUser", grNumber);
+      localStorage.setItem("isLoggedIn", true);
+      toast.success(" LoggedIn Successfully ", {
+        style: {
+          border: "1px solid #713200",
+          padding: "16px",
+          color: "#713200",
+        },
+        iconTheme: {
+          primary: "#713200",
+          secondary: "#FFFAEE",
+        },
+      });
+
+      navigate("/home");
     } else {
       alert("Only users with @marwadiuniversity.ac.in can login.");
     }
@@ -37,99 +55,51 @@ const LoginPage = () => {
     console.log("Login Failed");
   };
 
-  const handleLogout = () => {
-    // Perform any additional logout tasks here
-    setIsLoggedIn(false);
-  };
-
-  const handleButtonLogin = async (e) => {
-    e.preventDefault();
-
-    const response = await fetch("http://localhost:3000/api/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: username,
-        password: password,
-      }),
-    });
-
-    const json = await response.json();
-    if (json.success) {
-      localStorage.setItem("token", json.token);
-      navigate("/login");
-    }
-  };
-
   return (
     <>
       <form>
         <h1>Welcome to MU ICT Labs</h1>
         <h5>Login to access your account</h5>
         <div>
-          <label htmlFor="username">Username</label>
-          <input type="text" placeholder="Email or Phone" id="username" />
-          <label htmlFor="username">Password</label>
-          <div className="mb-4 flex">
-            <input
-              type={type}
-              name="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              autoComplete="current-password"
-            />
-            <span
-              className="flex justify-around items-center"
-              onClick={handleToggle}
-            >
-              <Icon class="absolute mr-10" icon={icon} size={20} />
-            </span>
+          <div className="select-role">
+            <label htmlFor="Role" className="role-radio">
+              Select Role :
+            </label>
+            <div className="role-options">
+              <input
+                type="radio"
+                value="student"
+                checked={role === "student"}
+                onChange={() => setRole("student")}
+              />
+              <label className="role-radio">Student</label>
+              <input
+                type="radio"
+                value="faculty"
+                checked={role === "faculty"}
+                onChange={() => setRole("faculty")}
+              />
+              <label className="role-radio">Faculty</label>
+            </div>
           </div>
-          <div className="role-radio">
-            <label htmlFor="Role">Select Role :</label>
-
-            <input
-              type="radio"
-              value="student"
-              checked={role === "student"}
-              onChange={() => setRole("student")}
-            />
-            <label>Student</label>
-            <input
-              type="radio"
-              value="faculty"
-              checked={role === "faculty"}
-              onChange={() => setRole("faculty")}
-            />
-            <label>Faculty</label>
-          </div>
-          <button>
-            <Link to="/home">Login</Link>
-          </button>
-          <p className="orsection"> OR </p>
-          {isLoggedIn ? (
-            <button
-              onClick={handleLogout}
-              type="button"
-              className="btn btn-info"
-            >
-              Logout
+          {role === "student" && (
+            <button>
+              <Link to="/qr-reader">Scan QR from ID</Link>
             </button>
-          ) : (
-            <GoogleLogin
-              onSuccess={handleLoginSuccess}
-              onError={handleLoginError}
-            />
           )}
-        </div>
-        <div className="login">
-          Dont have account ?{" "}
-          <strong>
-            <Link to="/signup">SignUp</Link>
-          </strong>
+          {role === "faculty" && (
+            <button>
+              <Link to="/signup">SignUp</Link>
+            </button>
+          )}
+          {(role === "student" || role === "faculty") && (
+            <div className="login-google">
+              <GoogleLogin
+                onSuccess={handleLoginSuccess}
+                onError={handleLoginError}
+              />
+            </div>
+          )}
         </div>
       </form>
     </>

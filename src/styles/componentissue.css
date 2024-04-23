@@ -1,46 +1,42 @@
-* {
-    font-family: 'Source Sans Pro', sans-serif;
+.component-issue-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
 }
 
-.form-div {
-    width: 100vw;
-    height: 85vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f1faff;
+.component-issue-form h2 {
+    margin-bottom: 20px;
 }
 
-.comp-form {
-    height: 65vh;
-    width: 40vw;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    padding: 0 4vw;
+.form-group {
+    margin-bottom: 15px;
 }
 
-.date-picker-container {
-    display: flex;
-    align-items: center;
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
 }
 
-.react-datepicker {
-    font-size: 14px;
-}
-
-.react-datepicker__input-container input {
+.form-group input,
+.form-group textarea {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-left: 10px;
 }
 
-.dropdown-menus {
-    display: flex;
-    justify-content: space-around;
+button[type='submit'] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button[type='submit']:hover {
+    background-color: #0056b3;
 }
