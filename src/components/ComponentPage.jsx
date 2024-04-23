@@ -1,6 +1,6 @@
 import "../styles/componentPage.css";
 import NavBar from "./NavBar";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getFirestore, doc, getDoc } from "firebase/firestore"; // Import Firestore methods
 
@@ -78,6 +78,15 @@ const ComponentPage = () => {
                   Watch Video
                 </button>
               </a>
+              <Link
+                to={`/component-issue?componentName=${encodeURIComponent(
+                  cardDetails.name
+                )}`}
+              >
+                <button type="button" className="btn btn-info ml-3">
+                  Issue this Component
+                </button>
+              </Link>
             </div>
             <div className="col-lg-6">
               <div className="about-avatar">

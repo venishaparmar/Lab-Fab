@@ -10,7 +10,8 @@
 body {
     background-color: #ffffff;
     font-family: 'Source Sans Pro', sans-serif;
-    color: #333; /* Changed text color for better contrast */
+    color: #333;
+    /* Changed text color for better contrast */
 }
 
 /* Background shapes */
@@ -46,11 +47,13 @@ button {
     font-weight: 600;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Added transition effect */
+    transition: background-color 0.3s ease;
+    /* Added transition effect */
 }
 
 button:hover {
-    background-color: #0d7d8d; /* Changed hover color for better contrast */
+    background-color: #0d7d8d;
+    /* Changed hover color for better contrast */
 }
 
 /* Media queries for responsiveness */
@@ -74,16 +77,19 @@ form h5 {
     line-height: 42px;
     text-align: center;
     color: #14a2b9;
-    margin-bottom: 20px; /* Added margin bottom for spacing */
+    margin-bottom: 20px;
+    /* Added margin bottom for spacing */
 }
 
 .login {
     text-align: center;
-    margin-top: 20px; /* Added margin top for spacing */
+    margin-top: 20px;
+    /* Added margin top for spacing */
 }
 
 .role-radio {
-    padding-top: 5; /* Adjusted padding for spacing */
+    padding-top: 5;
+    /* Adjusted padding for spacing */
     display: flex;
     font-size: 20px;
 }
@@ -97,7 +103,7 @@ input[type="radio"] {
     justify-content: center;
 }
 
-.login-google{
+.login-google {
     padding-top: 5%;
     text-align: center;
     align-items: center;
@@ -107,8 +113,9 @@ input[type="radio"] {
 .role-options {
     display: flex;
     align-items: center;
-  }
-  
-  .role-options input[type="radio"] {
-    margin-right: 5px; /* Adjust spacing between radio buttons and labels */
-  }
+}
+
+.role-options input[type="radio"] {
+    margin-right: 5px;
+    /* Adjust spacing between radio buttons and labels */
+}

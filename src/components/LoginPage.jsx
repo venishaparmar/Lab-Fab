@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../styles/login.css";
-import { Icon } from "react-icons-kit";
+import toast from "react-hot-toast";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
 import { Link, useNavigate } from "react-router-dom";
@@ -22,14 +22,29 @@ const LoginPage = () => {
       setType("password");
     }
   };
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLoginSuccess = (credentialResponse) => {
     let myUser = jwtDecode(credentialResponse.credential);
     if (myUser.email.endsWith("@marwadiuniversity.ac.in")) {
-      localStorage.setItem("jwt-token", credentialResponse.credential);
-      localStorage.setItem("username", myUser.name);
-      setIsLoggedIn(true);
+      //localStorage.setItem("jwt-token", credentialResponse.credential);
+      // localStorage.setItem("username", myUser.name);
+      const numbersInEmail = myUser.email.match(/\d+/g);
+      const grNumber = numbersInEmail.join("");
+      console.log(grNumber);
+      localStorage.setItem("currentUser", grNumber);
+      localStorage.setItem("isLoggedIn", true);
+      toast.success(" LoggedIn Successfully ", {
+        style: {
+          border: "1px solid #713200",
+          padding: "16px",
+          color: "#713200",
+        },
+        iconTheme: {
+          primary: "#713200",
+          secondary: "#FFFAEE",
+        },
+      });
+
       navigate("/home");
     } else {
       alert("Only users with @marwadiuniversity.ac.in can login.");
@@ -40,11 +55,6 @@ const LoginPage = () => {
     console.log("Login Failed");
   };
 
-  const handleLogout = () => {
-    // Perform any additional logout tasks here
-    setIsLoggedIn(false);
-  };
-
   return (
     <>
       <form>
@@ -52,7 +62,9 @@ const LoginPage = () => {
         <h5>Login to access your account</h5>
         <div>
           <div className="select-role">
-            <label htmlFor="Role" className="role-radio">Select Role :</label>
+            <label htmlFor="Role" className="role-radio">
+              Select Role :
+            </label>
             <div className="role-options">
               <input
                 type="radio"
@@ -76,20 +88,17 @@ const LoginPage = () => {
             </button>
           )}
           {role === "faculty" && (
-              <button>
-                <Link to="/signup">SignUp</Link>
-              </button>
+            <button>
+              <Link to="/signup">SignUp</Link>
+            </button>
           )}
           {(role === "student" || role === "faculty") && (
             <div className="login-google">
-              <GoogleLogin onSuccess={handleLoginSuccess} onError={handleLoginError} />
+              <GoogleLogin
+                onSuccess={handleLoginSuccess}
+                onError={handleLoginError}
+              />
             </div>
-
-          )}
-          {isLoggedIn && (
-            <button onClick={handleLogout} type="button" className="btn btn-info">
-              Logout
-            </button>
           )}
         </div>
       </form>
