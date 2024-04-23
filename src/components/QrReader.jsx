@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-
+import toast from "react-hot-toast";
 import "../styles/QrStyles.css";
 import QrScanner from "qr-scanner";
 import QrFrame from "../assets/images/qr-frame.svg";
@@ -70,19 +70,38 @@ const QrReader = () => {
       console.log(data.error);
 
       if (data.success) {
-        localStorage.setItem("currentUser", data.currentUser);
+        localStorage.setItem("currentUser", data.currentUser.gr_no);
         localStorage.setItem("isLoggedIn", data.success);
+        toast.success(" LoggedIn Successfully ", {
+          style: {
+            border: "1px solid #713200",
+            padding: "16px",
+            color: "#713200",
+          },
+          iconTheme: {
+            primary: "#713200",
+            secondary: "#FFFAEE",
+          },
+        });
         navigate("/home");
       } else {
-        alert("Invalid credentials. Please try again.");
+        toast.error(" Invalid QR code ", {
+          style: {
+            border: "1px solid #713200",
+            padding: "16px",
+            color: "#713200",
+          },
+          iconTheme: {
+            primary: "#713200",
+            secondary: "#FFFAEE",
+          },
+        });
       }
     } catch (error) {
       console.log(error);
       alert("Login failed. Please try again.");
     } finally {
-      setShow(false);
       setPassword("");
-      refClose.current.click();
     }
   };
 
