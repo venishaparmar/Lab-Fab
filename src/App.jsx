@@ -6,8 +6,11 @@ import ComponentIssue from "./components/ComponentIssue";
 import SignUp from "./components/SignUp";
 import ComponentPage from "./components/ComponentPage";
 import RequestShow from "./components/RequestShow";
-import Labcard from "./components/Labcard";
 import QrReader from "./components/QrReader";
+import Labs from "./components/Labs";
+import LabEntry from "./components/LabEntry";
+import { Toaster } from "react-hot-toast";
+import ComponentReview from "./components/ComponentReview";
 
 function App() {
   return (
@@ -18,13 +21,19 @@ function App() {
           <Route path="/" element={<SignUp />} />
           <Route path="/home" element={<HomeMain />} />
           <Route path="/component-issue" element={<ComponentIssue />} />
-          <Route path="/lab-entry" element={<Labcard />} />
+          <Route path="/labs" element={<Labs />} />
+          <Route path="/lab-entry" element={<LabEntry />} />
           <Route path="/request-show" element={<RequestShow />} />
           <Route exact path="/component-page/:id" element={<ComponentPage />} />
           <Route exact path="/qr-reader" element={<QrReader />} />
           <Route exact path="/request" element={<RequestShow />} />
-
+          <Route
+            exact
+            path="component-request-review"
+            element={<ComponentReview />}
+          />
         </Routes>
+        <Toaster position="top-center" reverseOrder={false} />
       </>
     </BrowserRouter>
   );
