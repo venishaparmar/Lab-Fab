@@ -55,6 +55,10 @@ const LoginPage = () => {
     console.log("Login Failed");
   };
 
+  const handleLogin =()=>{
+    navigate("/faculty-login");
+  }
+
   return (
     <>
       <form>
@@ -88,8 +92,8 @@ const LoginPage = () => {
             </button>
           )}
           {role === "faculty" && (
-            <button>
-              <Link to="/signup">SignUp</Link>
+            <button onClick={handleLogin}>
+              Login
             </button>
           )}
           {(role === "student" || role === "faculty") && (
