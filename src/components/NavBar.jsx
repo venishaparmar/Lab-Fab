@@ -38,6 +38,9 @@ export default function NavBar() {
             <li className="p-4 b-2">
               <Link to="/request-show">My Requests</Link>
             </li>
+            <li className="p-4 b-2">
+              <Link to="/component-request-review">Request Review</Link>
+            </li>
           </ul>
         </nav>
         <div className="w-full sm:w-3/12 flex justify-center  sm:justify-end">
