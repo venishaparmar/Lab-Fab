@@ -11,6 +11,7 @@ import Labs from "./components/Labs";
 import LabEntry from "./components/LabEntry";
 import { Toaster } from "react-hot-toast";
 import ComponentReview from "./components/ComponentReview";
+import AddComponent from "./components/AddComponent";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route exact path="/component-page/:id" element={<ComponentPage />} />
           <Route exact path="/qr-reader" element={<QrReader />} />
           <Route exact path="/request" element={<RequestShow />} />
+          <Route exact path="/add-component" element={<AddComponent />} />
           <Route
             exact
             path="component-request-review"

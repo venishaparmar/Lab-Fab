@@ -5,6 +5,7 @@ import { Icon } from "react-icons-kit";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
   let navigate = useNavigate();
@@ -44,6 +45,19 @@ const SignUp = () => {
     if (json.success) {
       localStorage.setItem("token", json.token);
       navigate("/login");
+    } else {
+      const errorMessages = json.errors.map((error) => error.msg);
+      toast.error(`${errorMessages[0]}`, {
+        style: {
+          border: "1px solid #713200",
+          padding: "16px",
+          color: "#713200",
+        },
+        iconTheme: {
+          primary: "#713200",
+          secondary: "#FFFAEE",
+        },
+      });
     }
   };
 
