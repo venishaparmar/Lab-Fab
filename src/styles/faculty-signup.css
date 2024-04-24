@@ -1,0 +1,154 @@
+/* General styling */
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+}
+
+/* Background shapes */
+.background {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+/* Form styling */
+form {
+    max-width: 500px;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.15);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+}
+
+/* Input and button styling */
+input,
+button {
+    width: 100%;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 600px) {
+    form {
+        padding: 30px;
+    }
+
+    label,
+    input,
+    button {
+        font-size: 14px;
+    }
+}
+
+.faculty-signup-form {
+    height: 530px;
+    width: 500px;
+    background-color: rgba(255, 255, 255, 0.15);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+}
+
+.faculty-login-form {
+    height: 480px;
+    width: 500px;
+    background-color: rgba(255, 255, 255, 0.15);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+}
+
+form * {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #000000;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+
+form h5 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+    color: black;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+input {
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 6px;
+    margin-bottom: -1;
+    font-size: 15px;
+    font-weight: 600;
+    color: #000000;
+    border: 1px solid #ccc;
+    /* Add border style */
+}
+
+.login {
+    text-align: center;
+}
+
+button {
+    margin-top: 20px;
+    width: 100%;
+    background-color: #14a2b9;
+    color: #e5e5e5;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.role-radio {
+    display: flex;
+}
+
+input[type="radio"] {
+    height: 20px;
+    width: 20px;
+    margin-top: 12px;
+    margin-left: 30px;
+    margin-right: 8px;
+    justify-content: center;
+}
