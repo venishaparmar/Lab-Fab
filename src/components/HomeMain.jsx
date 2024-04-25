@@ -207,8 +207,8 @@ export default function HomeMain() {
         {firstDropdownValue && secondDropdownValue
           ? `Search Results for ${firstDropdownValue.label} of ${secondDropdownValue.label}`
           : firstDropdownValue
-          ? `Search Results for ${firstDropdownValue.label} of ${searchQuery}`
-          : " All Equipments "}
+            ? `Search Results for ${firstDropdownValue.label} of ${searchQuery}`
+            : " All Equipments "}
       </h1>
 
       {loading ? <Loader /> : <Homecard dataValues={storedValues} />}
