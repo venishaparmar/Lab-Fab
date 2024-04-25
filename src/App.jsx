@@ -13,8 +13,9 @@ import { Toaster } from "react-hot-toast";
 import ComponentReview from "./components/ComponentReview";
 import FacultySignUp from "./components/FacultySignUp";
 import FacultyLogin from "./components/FacultyLogin";
-import FacultyHome from "./components/FacultyHome";
+import FacultyHome from "./components/Faculty/AdminHome";
 import AddComponent from "./components/AddComponent";
+import AdminHome from "./components/Faculty/AdminHome";
 
 function App() {
   return (
@@ -51,7 +52,13 @@ function App() {
             path="/faculty-home"
             element={<FacultyHome />}
           />
+          <Route
+            path="/adminhome"
+            element={<AdminHome />}
+          />
         </Routes>
+
+        
         <Toaster position="top-center" reverseOrder={false} />
       </>
     </BrowserRouter>
