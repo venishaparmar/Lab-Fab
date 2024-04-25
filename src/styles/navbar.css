@@ -12,3 +12,8 @@
   border-color: #14a2b9;
   color: #14a2b9;
 }
+
+.logo {
+  display: ruby;
+  margin-right: 24px;
+}
