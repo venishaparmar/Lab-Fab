@@ -5,7 +5,6 @@ import QrScanner from "qr-scanner";
 import QrFrame from "../assets/images/qr-frame.svg";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import NavBar from "./NavBar";
 
 const LabEntry = () => {
   const scanner = useRef(null);
@@ -153,7 +152,6 @@ const LabEntry = () => {
 
   return (
     <>
-      <NavBar />
       <h1 className="lab-entry-heading"> Scan ID Card To Lab Entry </h1>
       <div className="qr-reader">
         <video ref={videoEl}></video>
