@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import NavBar from "./NavBar";
 import Badge from "./Badge";
+import AdminNavbar from "./Faculty/AdminNavbar";
 
 const ComponentReview = () => {
   const [componentIssues, setComponentIssues] = useState([]);
@@ -70,7 +70,7 @@ const ComponentReview = () => {
 
   return (
     <>
-      <NavBar />
+      <AdminNavbar/>
       <div className="relative max-w-md mx-auto mt-3">
         <div className="overflow-hidden bg-gray-200 pb-3 pr-3 pl-3 shadow-md">
           <div className="flex justify-between">
