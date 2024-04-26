@@ -1,6 +1,3 @@
-import React, { useState } from "react";
-import NavBar from "./NavBar";
-import toast from "react-hot-toast";
 import AdminNavbar from "./Faculty/AdminNavbar";
 import { useForm } from "react-hook-form";
 
