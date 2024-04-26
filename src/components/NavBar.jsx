@@ -38,9 +38,6 @@ export default function NavBar() {
               <Link to="/home">Home</Link>
             </li>
             <li className="p-4 b-2 flex-shrink-0">
-              <Link to="/lab-entry">Lab Entry</Link>
-            </li>
-            <li className="p-4 b-2 flex-shrink-0">
               <Link to="/component-issue">Component Issue</Link>
             </li>
             <li className="p-4 b-2 flex-shrink-0">

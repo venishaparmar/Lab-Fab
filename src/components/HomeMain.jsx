@@ -184,7 +184,7 @@ export default function HomeMain() {
                 searchFirestore("name", searchQuery);
               }
             }}
-            className="group relative overflow-hidden bg-blue-600 focus:ring-4 focus:ring-blue-300 inline-flex items-center px-7 py-2.5 rounded-lg text-white justify-center w-40 h-10"
+            className="group relative overflow-hidden focus:ring-4 focus:ring-blue-300 inline-flex items-center px-7 py-2.5 rounded-lg text-white justify-center w-40 h-10"
           >
             Search
             <svg

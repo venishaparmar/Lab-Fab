@@ -16,6 +16,7 @@ import FacultyLogin from "./components/FacultyLogin";
 import FacultyHome from "./components/Faculty/AdminHome";
 import AddComponent from "./components/AddComponent";
 import AdminHome from "./components/Faculty/AdminHome";
+import LabEntries from "./components/Faculty/LabEntries";
 
 function App() {
   return (
@@ -56,6 +57,12 @@ function App() {
             path="/adminhome"
             element={<AdminHome />}
           />
+          <Route
+            path="/lab-entries"
+            element={<LabEntries />}
+          />
+
+
         </Routes>
 
         

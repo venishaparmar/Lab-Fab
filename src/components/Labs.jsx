@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/LabCard.css";
 import LabEntry from "./LabEntry";
+import AdminNavbar from "./Faculty/AdminNavbar";
 
 export default function Labs() {
   const [showForm, setShowForm] = useState(false);
@@ -12,6 +13,8 @@ export default function Labs() {
   };
 
   return (
+    <>
+    <AdminNavbar/>
     <div>
       <div className="card-list">
         <a
@@ -67,5 +70,6 @@ export default function Labs() {
         <LabEntry location={selectedLab.location} name={selectedLab.name} />
       )}
     </div>
+    </>
   );
 }

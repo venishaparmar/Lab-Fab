@@ -19,7 +19,7 @@ body {
 }
 
 /* Form styling */
-form {
+/* form {
     max-width: 500px;
     width: 90%;
     background-color: rgba(255, 255, 255, 0.15);
@@ -32,7 +32,7 @@ form {
     border: 2px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
     padding: 50px 35px;
-}
+} */
 
 /* Input and button styling */
 input,

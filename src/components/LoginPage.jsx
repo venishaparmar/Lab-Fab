@@ -55,13 +55,13 @@ const LoginPage = () => {
     console.log("Login Failed");
   };
 
-  const handleLogin =()=>{
+  const handleLogin = () => {
     navigate("/faculty-login");
   }
 
   return (
     <>
-      <form>
+      <form className="login-form">
         <h1>Welcome to MU ICT Labs</h1>
         <h5>Login to access your account</h5>
         <div>

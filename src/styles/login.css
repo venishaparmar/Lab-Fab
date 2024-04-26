@@ -22,7 +22,7 @@ body {
 }
 
 /* Form styling */
-form {
+.login-form {
     max-width: 500px;
     width: 80%;
     height: 400px;
