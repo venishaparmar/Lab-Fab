@@ -1,5 +1,6 @@
 import AdminNavbar from "./Faculty/AdminNavbar";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 const AddComponent = () => {
   const {
@@ -9,11 +10,37 @@ const AddComponent = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
+    console.log(data);
     try {
-      // Handle form submission
-      console.log(data);
+      const fileFormData = new FormData();
+      fileFormData.append('compImage', data.image[0]);
 
-      // Reset form fields
+      const uploadResponse = await axios.post('http://localhost:3000/component/Image', fileFormData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          }
+        });
+      console.log(uploadResponse.data.image);
+      const fileName = uploadResponse.data.image;
+
+      const formData = {
+        componentName: data.name,
+        description: data.description,
+        location: data.location,
+        startTime: data.startingTime,
+        endTime: data.endingTime,
+        videoUrl: data.videoUrl,
+        imageName: fileName,
+      };
+      console.log(formData);
+      const createUserResponse = await axios.post('http://localhost:8080/api/components/', formData);
+
+      if (createUserResponse.status === 201) {
+        console.log(createUserResponse.data);
+      } else {
+        console.error('Error:', createUserResponse.statusText);
+      }
     } catch (error) {
       console.error("Error:", error);
     }
