@@ -25,6 +25,11 @@ const LabEntrySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  student: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Student",
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("LabEntry", LabEntrySchema);

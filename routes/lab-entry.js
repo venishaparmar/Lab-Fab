@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const LabEntry = require("../models/LabEntry");
+const Student = require("../models/Student");
 
 router.post("/check", async (req, res) => {
   const { grNumber } = req.body;
@@ -30,10 +31,15 @@ router.post("/check", async (req, res) => {
 });
 
 router.post("/add-entry", async (req, res) => {
-  const { grNumber, entryTime, leaveTime, purpose, isActive, labCode } =
-    req.body;
+  const { grNumber, entryTime, leaveTime, purpose, isActive, labCode } = req.body;
 
   try {
+    // Find the student by gr_no
+    const student = await Student.findOne({ gr_no: grNumber });
+    if (!student) {
+      return res.status(404).json({ error: "Student not found" });
+    }
+
     const newLabEntry = new LabEntry({
       grNumber,
       entryTime,
@@ -41,6 +47,7 @@ router.post("/add-entry", async (req, res) => {
       purpose,
       isActive,
       labCode,
+      student: student._id,
     });
 
     await newLabEntry.save();
@@ -54,6 +61,7 @@ router.post("/add-entry", async (req, res) => {
   }
 });
 
+
 router.put("/lab-leave", async (req, res) => {
   const { grNumber } = req.body;
 
@@ -61,7 +69,7 @@ router.put("/lab-leave", async (req, res) => {
     const updatedLabEntry = await LabEntry.findOneAndUpdate(
       { grNumber },
       { leaveTime: new Date().toISOString(), isActive: false },
-      { new: true } // Return the updated document
+      { new: true } 
     );
 
     res
@@ -73,4 +81,14 @@ router.put("/lab-leave", async (req, res) => {
   }
 });
 
+router.get("/all-entries", async (req, res) => {
+  try {
+    const labEntries = await LabEntry.find().populate("student", "student_name");
+
+    res.status(200).json({ labEntries });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error fetching lab entries" });
+  }
+});
 module.exports = router;

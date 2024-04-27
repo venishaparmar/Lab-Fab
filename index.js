@@ -15,9 +15,11 @@ app.use(express.json());
 connectToMongo();
 
 app.use("/api/auth", require("./routes/auth"));
+app.use("/api/student", require("./routes/students"));
 app.use("/api/component", require("./routes/component"));
 app.use("/api/lab-entries", require("./routes/lab-entry"));
 app.use("/api/faculty", require("./routes/faculty"));
+
 
 app.post("/component/image", upload.single("compImage"), async function (req, res, next) {
   try {
