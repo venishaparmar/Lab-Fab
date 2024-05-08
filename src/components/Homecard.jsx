@@ -19,11 +19,12 @@ export default function Homecard(props) {
                   <p className="card__title">{element.name}</p>
                   <p className="card__description">{element.description}</p>
                   <div className="card__buttons">
-                    <button className="card__button">
+                    <button className="card__button" style={{ color: 'white' }}>
                       <a
                         target="_blank"
                         rel="noopener noreferrer"
                         href={element["video-link"]}
+                        style={{ color: 'white', textDecoration: 'none' }}
                       >
                         See Demo
                       </a>
@@ -31,9 +32,11 @@ export default function Homecard(props) {
                     <button
                       className="card__button secondary"
                       onClick={() => handleSelect(element.id)}
+                      style={{ color: 'white' }}
                     >
                       More
                     </button>
+
                   </div>
                 </div>
               </div>

@@ -154,7 +154,8 @@ const QrReader = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button onClick={handleLogin}>Login</button>
+            <button onClick={handleLogin} style={{ backgroundColor: '#14a2b9' }}>Login</button>
+
           </div>
         </div>
       )}

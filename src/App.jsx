@@ -16,7 +16,10 @@ import FacultyLogin from "./components/FacultyLogin";
 import FacultyHome from "./components/Faculty/AdminHome";
 import AddComponent from "./components/AddComponent";
 import AdminHome from "./components/Faculty/AdminHome";
-import LabEntries from "./components/Faculty/LabEntries";
+import LabEntries from "./components/Faculty/LabEntryOverview";
+import AddSubject from "./components/Faculty/AddSubject";
+import ComplainReview from "./components/Faculty/ComplainReview";
+import LabLogin from "./components/LabLogin";
 
 function App() {
   return (
@@ -61,11 +64,21 @@ function App() {
             path="/lab-entries"
             element={<LabEntries />}
           />
-
-
+          <Route
+            path="/add-subject"
+            element={<AddSubject />}
+          />
+          <Route
+            path="/complain-review"
+            element={<ComplainReview />}
+          />
+          <Route
+            path="/lab-login"
+            element={<LabLogin />}
+          />
         </Routes>
 
-        
+
         <Toaster position="top-center" reverseOrder={false} />
       </>
     </BrowserRouter>

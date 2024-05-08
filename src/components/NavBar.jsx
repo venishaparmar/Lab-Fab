@@ -18,8 +18,7 @@ export default function NavBar() {
       <header className="header top-0 bg-white shadow-md flex flex-col sm:flex-row items-center justify-between px-4 sm:px-6 lg:px-8 py-1 sticky top-0 z-50">
         <div className="logo w-full sm:w-4/12 sm:mb-0">
           <a href="/">
-            <img src={MuLogo} alt="logo" className="w-50 mx-5 sm:mx-0" />
-
+          <img src={MuLogo} alt="logo" className="w-50 mx-0 sm:mx-10" />
           </a>
           <a href="/">
             <img

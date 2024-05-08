@@ -5,6 +5,7 @@ import { Icon } from "react-icons-kit";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const FacultyLogin = () => {
     const navigate = useNavigate();
@@ -18,13 +19,29 @@ const FacultyLogin = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!email.endsWith("@marwadieducation.edu.in")) {
+            toast.error(" Email should end with @marwadieducation.edu.in ", {
+                style: {
+                  border: "1px solid #713200",
+                  padding: "16px",
+                  color: "#713200",
+                },
+                iconTheme: {
+                  primary: "#713200",
+                  secondary: "#FFFAEE",
+                },
+              });
+            // alert("Email should end with @marwadieducation.edu.in");
+            return;
+        }
+    
         try {
             const response = await axios.post("http://localhost:3000/api/faculty/login", {
                 email: email,
                 password: password,
             });
             console.log(response.data.faculty);
-
+    
             if (response.data.success) {
                 localStorage.setItem("token", response.data.token);
                 navigate("/home");
@@ -33,6 +50,7 @@ const FacultyLogin = () => {
             console.error("Error:", error);
         }
     };
+    
     return (
         <form onSubmit={handleSubmit} className="faculty-login-form">
             <h5>Login to Your Account</h5>

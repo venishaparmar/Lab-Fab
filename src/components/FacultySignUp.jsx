@@ -5,6 +5,7 @@ import "../styles/faculty-signup.css";
 import { Icon } from "react-icons-kit";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
+import toast from "react-hot-toast";
 
 const FacultySignUp = () => {
     let navigate = useNavigate();
@@ -24,11 +25,26 @@ const FacultySignUp = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!email.endsWith("@marwadieducation.edu.in")) {
+            toast.error(" Email should end with @marwadieducation.edu.in ", {
+                style: {
+                  border: "1px solid #713200",
+                  padding: "16px",
+                  color: "#713200",
+                },
+                iconTheme: {
+                  primary: "#713200",
+                  secondary: "#FFFAEE",
+                },
+              });
+            return;
+        }
+        
         if (password !== confirmPassword) {
             alert("Passwords do not match");
             return;
         }
-
+    
         const response = await fetch("http://localhost:3000/api/faculty", {
             method: "POST",
             headers: {
@@ -39,18 +55,19 @@ const FacultySignUp = () => {
                 password: password,
             }),
         });
-
+    
         const json = await response.json();
         if (json.success) {
             localStorage.setItem("token", json.token);
             navigate("/login");
         }
     };
+    
 
     return (
         <>
             <form onSubmit={handleSubmit} className="faculty-signup-form">
-                <h5>Create Here Your Faculty Account</h5>
+                <h5>Create Your Faculty Account Here</h5>
                 <div>
                     <label htmlFor="email">Enter your email</label>
                     <input

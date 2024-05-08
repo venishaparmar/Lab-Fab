@@ -82,12 +82,12 @@
     border-radius: 8px;
     background: transparent;
     border: 1px solid #777;
-    color: #777;
+    color: white;
     margin-right: 15px;
 }
 
 .secondary {
     background: transparent;
-    color: #777;
+    color: white;
     border: 1px solid #777;
 }

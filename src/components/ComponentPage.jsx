@@ -69,24 +69,25 @@ const ComponentPage = () => {
                   <span className="value">{cardDetails.timing}</span>
                 </div>
               </div>
-              <a
-                href={cardDetails["video-link"]}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <button type="button" className="btn btn-info">
-                  Watch Video
-                </button>
-              </a>
               <Link
                 to={`/component-issue?componentName=${encodeURIComponent(
                   cardDetails.name
                 )}`}
               >
-                <button type="button" className="btn btn-info ml-3">
+                <button type="button" style={{ backgroundColor: '#14a2b9', width: '40%', marginRight: '4px' }}>
                   Issue this Component
                 </button>
               </Link>
+              <a
+                href={cardDetails["video-link"]}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button type="button" style={{ backgroundColor: '#14a2b9', width: '30%' }}>
+                  Watch Video
+                </button>
+              </a>
+              
             </div>
             <div className="col-lg-6">
               <div className="about-avatar">

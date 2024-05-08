@@ -1,10 +1,10 @@
 import AdminNavbar from "./AdminNavbar"
-import LabEntries from "./LabEntries"
+import LabEntries from "./LabEntryOverview"
 
 const AdminHome = () => {
   return (
     <div>
-      <AdminNavbar/>
+      <AdminNavbar />
       <LabEntries />
     </div>
   )

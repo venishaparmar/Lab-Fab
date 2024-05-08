@@ -1,49 +1,21 @@
 import { useState } from "react";
-import "../styles/login.css";
-import toast from "react-hot-toast";
-import { eyeOff } from "react-icons-kit/feather/eyeOff";
-import { eye } from "react-icons-kit/feather/eye";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
+import "../styles/login.css";  
 
 const LoginPage = () => {
-  const [password, setPassword] = useState("");
-  const [type, setType] = useState("password");
-  const [icon, setIcon] = useState(eyeOff);
   const [role, setRole] = useState("");
   const navigate = useNavigate();
-  const handleToggle = () => {
-    if (type === "password") {
-      setIcon(eye);
-      setType("text");
-    } else {
-      setIcon(eyeOff);
-      setType("password");
-    }
-  };
 
   const handleLoginSuccess = (credentialResponse) => {
     let myUser = jwtDecode(credentialResponse.credential);
     if (myUser.email.endsWith("@marwadiuniversity.ac.in")) {
-      //localStorage.setItem("jwt-token", credentialResponse.credential);
-      // localStorage.setItem("username", myUser.name);
       const numbersInEmail = myUser.email.match(/\d+/g);
       const grNumber = numbersInEmail.join("");
       console.log(grNumber);
       localStorage.setItem("currentUser", grNumber);
       localStorage.setItem("isLoggedIn", true);
-      toast.success(" LoggedIn Successfully ", {
-        style: {
-          border: "1px solid #713200",
-          padding: "16px",
-          color: "#713200",
-        },
-        iconTheme: {
-          primary: "#713200",
-          secondary: "#FFFAEE",
-        },
-      });
 
       navigate("/home");
     } else {
@@ -57,7 +29,7 @@ const LoginPage = () => {
 
   const handleLogin = () => {
     navigate("/faculty-login");
-  }
+  };
 
   return (
     <>
@@ -84,16 +56,26 @@ const LoginPage = () => {
                 onChange={() => setRole("faculty")}
               />
               <label className="role-radio">Faculty</label>
+              <input
+                type="radio"
+                value="lablogin"
+                checked={role === "lablogin"}
+                onChange={() => setRole("lablogin")}
+              />
+              <label className="role-radio">Lab Login</label>
             </div>
           </div>
           {role === "student" && (
-            <button>
+            <button style={{ color: "white" }}>
               <Link to="/qr-reader">Scan QR from ID</Link>
             </button>
           )}
           {role === "faculty" && (
-            <button onClick={handleLogin}>
-              Login
+            <button onClick={handleLogin}>Login</button>
+          )}
+          {role === "lablogin" && (
+            <button>
+              <Link to="/lab-login">Go to Lab Login</Link>
             </button>
           )}
           {(role === "student" || role === "faculty") && (

@@ -59,6 +59,29 @@ body {
     background-image: url('../assets/images/background.png');
 }
 
+.lab-entry-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .lab-entry-modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 40%; /* Adjust the width as needed */
+    max-width: 600px; /* Maximum width of the modal */
+    max-height: 90%; /* Maximum height of the modal */
+    overflow-y: auto; /* Enable vertical scroll if content exceeds height */
+  }
+  
+
 @media (max-width: 1200px) {
     .card-list .card-item {
         padding: 15px;
